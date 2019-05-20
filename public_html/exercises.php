@@ -18,7 +18,7 @@
                     <h2>Exercises</h2>
                 </div>
                 <button class='btn-add' type='button' name='btn-add'>
-                    <a class='btn-icon btn-icon-add'>New Exercise</a>
+                    <a class='btn-icon btn-icon-add' onclick='showModalAdd(this)'>New Exercise</a>
                 </button>
                 <div class="table_wrapper">
                     <table id="datatable" class="display compact hover">
@@ -45,14 +45,14 @@
                                     <td>" . $row['caption'] . "</td>
                                     <td>" . $row['type'] . "</td>
                                     <td>
-                                        <img class'img-exercise' src='resources/img/exercises/" . $row['img thumbnail'] . "' alt='" . $row['caption'] . "'>
+                                        <img class'img-exercise' src='resources/img/exercises/" . $row['img thumbnail'] . "' alt='" . $row['img thumbnail'] . "'>
                                     </td>
                                     <td>" . $row['status'] . "</td>
                                     <td>" . $row['kj_coefficient'] . "</td>
                                     <td>" . $row['calculation type'] . "</td>
                                     <td>
                                         <button class='btn-edit' type='button' name='btn-edit'>
-                                            <a class='btn-icon btn-icon-edit' onclick='showModal(this)'>Edit</a>
+                                            <a class='btn-icon btn-icon-edit'>Edit</a>
                                         </button>
                                         <button class='btn-del' type='button' name='btn-del'>
                                             <a class='btn-icon btn-icon-del'>Delete</a>
@@ -81,18 +81,18 @@
             <div class="modal-content">
                 <button id="btn-close" class="close" type="button" name="">X</button>
                 <h2>Edit</h2>
-                <form method="post">
+                <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
                                 <td>Caption</td>
                                 <td>
-                                    <input type="text"/>
+                                    <input type="text" name="cpt"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Type</td>
                                 <td>
-                                    <select>
+                                    <select name="type">
                                         <option value="Easy">Easy</option>
                                         <option value="Moderate">Moderate</option>
                                         <option value="Challenging">Challenging</option>
@@ -102,31 +102,31 @@
                             <tr>
                                 <td>Status</td>
                                 <td>
-                                    <select>
-                                        <option value="active">Active</option>
-                                        <option value="inactive">Inactive</option>
+                                    <select name="status">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Kilojoule Coefficient</td>
                                 <td>
-                                    <input type="number" step="0.000001" name="" value="">
+                                    <input type="number" step="0.000001" name="kjCo" value="">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Calculation Type</td>
                                 <td>
-                                    <select>
-                                        <option value="rep">Repetition</option>
-                                        <option value="dur">Duration</option>
+                                    <select name="calcType">
+                                        <option value="Repetitions">Repetition</option>
+                                        <option value="Duration">Duration</option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="Submit" value="Update"/>
+                                    <input type="Submit" name="addExer" value="Update"/>
                                 </td>
                             </tr>
                         </table>

@@ -23,27 +23,27 @@
                 <div class="page-title">
                     <h2>Settings</h2>
                 </div>
-                <form method="post">
+                <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <?php
                                 while($gRow = $globalResult->fetch_array(MYSQLI_ASSOC)) {
                              ?>
                             <tr>
                                 <td>Countdown Duration</td>
-                                <td><input type="number" value="<?php echo $gRow['Countdown Duration'] ?>"/></td>
+                                <td><input type="number" name="cdnDur" value="<?php echo $gRow['Countdown Duration'] ?>"/></td>
                             </tr>
                             <tr>
                                 <td>Helpful Hints Delay</td>
-                                <td><input type="number" value="<?php echo $gRow['Hint Delay'] ?>"/></td>
+                                <td><input type="number" name="hintDelay" value="<?php echo $gRow['Hint Delay'] ?>"/></td>
                             </tr>
                             <tr>
                                 <td>Delay Before Prompt</td>
-                                <td><input type="number" value="<?php echo $gRow['Delay Before Prompt Exercise'] ?>"/></td>
+                                <td><input type="number" name="delayPrmpt" value="<?php echo $gRow['Delay Before Prompt Exercise'] ?>"/></td>
                             </tr>
                             <tr>
                                 <td>Auto Prompt Exercise</td>
                                 <td>
-                                    <select>
+                                    <select name="autoPrmpt">
                                     <?php
                                         while($eRow = $exercisesResult->fetch_array(MYSQLI_ASSOC)) {
                                             if ($eRow['caption'] == $gRow['Auto Prompt Exercise']) {
@@ -58,7 +58,7 @@
                             </tr>
                             <tr>
                                 <td></td>
-                                <td><input type="Submit" value="Save Settings"/></td>
+                                <td><input type="Submit" name="saveSettings" value="Save Settings"/></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -67,7 +67,7 @@
                     <h2>Helpful Hints</h2>
                 </div>
                 <button class='btn-add' type='button' name='btn-add'>
-                    <a class='btn-icon btn-icon-add'>New Hint</a>
+                    <a class='btn-icon btn-icon-add' onclick='showModalAdd(this)'>New Hint</a>
                 </button>
                 <div class="table_wrapper">
                     <table id="datatable" class="display compact hover">
@@ -113,12 +113,12 @@
             <div class="modal-content">
                 <button id="btn-close" class="close" type="button" name="">X</button>
                 <h2>Edit</h2>
-                <form method="post">
+                <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
                                 <td>Department</td>
                                 <td>
-                                    <select>
+                                    <select name="dept">
                                         <option value="None">None</option>
                                     </select>
                                 </td>
@@ -126,19 +126,19 @@
                             <tr>
                                 <td>Hint</td>
                                 <td>
-                                    <input type="text" name="" value="">
+                                    <input type="text" name="hint" value="">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Hint Order</td>
                                 <td>
-                                    <input type="number" step="1" name="" value="">
+                                    <input type="number" step="1" name="hintOdr" value="">
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="Submit" value="Update"/>
+                                    <input type="Submit" name="addHint" value="Update"/>
                                 </td>
                             </tr>
                         </table>

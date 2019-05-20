@@ -18,7 +18,7 @@
                     <h2>Groups</h2>
                 </div>
                 <button class='btn-add' type='button' name='btn-add'>
-                    <a class='btn-icon btn-icon-add'>New Group</a>
+                    <a class='btn-icon btn-icon-add' onclick='showModalAdd(this)'>New Group</a>
                 </button>
                 <div class="table_wrapper">
                     <table id="datatable" class="display compact hover">
@@ -56,7 +56,7 @@
                                     <td>" . $row['Emergency Exit'] . "</td>
                                     <td>
                                         <button class='btn-edit' type='button' name='btn-edit'>
-                                            <a class='btn-icon btn-icon-edit' onclick='showModal(this)'>Edit</a>
+                                            <a class='btn-icon btn-icon-edit'>Edit</a>
                                         </button>
                                         <button class='btn-del' type='button' name='btn-del'>
                                             <a class='btn-icon btn-icon-del'>Delete</a>
@@ -88,12 +88,12 @@
             <div class="modal-content">
                 <button id="btn-close" class="close" type="button" name="">X</button>
                 <h2>Edit</h2>
-                <form method="post">
+                <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
                                 <td>Organisation</td>
                                 <td>
-                                    <select>
+                                    <select name"org">
                                         <option value="" disabled selected>Select an Organisation</option>
                                     </select>
                                 </td>
@@ -101,37 +101,37 @@
                             <tr>
                                 <td>Group Name</td>
                                 <td>
-                                    <input type="text"/>
+                                    <input type="text" name="grpName"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Group Short Name</td>
                                 <td>
-                                    <input type="text"/>
+                                    <input type="text" name="grpShrtName"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Run Exertime every</td>
                                 <td>
-                                    <input type="number" step="1" name="" value="">
+                                    <input type="number" step="1" name="runEvery" value="">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Completed by user every</td>
                                 <td>
-                                    <input type="number" step="1" name="" value="">
+                                    <input type="number" step="1" name="usrEvery" value="">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Default postpone interval</td>
                                 <td>
-                                    <input type="number" step="1" name="" value="">
+                                    <input type="number" step="1" name="postponeInt" value="">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Walking Exercise</td>
                                 <td>
-                                    <select>
+                                    <select name="walkExer">
                                         <option value="">None</option>
                                     </select>
                                 </td>
@@ -139,31 +139,31 @@
                             <tr>
                                 <td>Walking Exercise Delay</td>
                                 <td>
-                                    <input type="number" step="1" name="" value="">
+                                    <input type="number" step="1" name="walkExerDelay" value="">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Walking Exercise Prompt</td>
                                 <td>
-                                    <textarea name="name"></textarea>
+                                    <textarea name="walkExerPrmpt"></textarea>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Notification Dialog Prompt</td>
                                 <td>
-                                    <textarea name="name"></textarea>
+                                    <textarea name="notifDiag"></textarea>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Emergency exit</td>
                                 <td>
-                                    <input type="checkbox" name="" value="">
+                                    <input type="checkbox" name="emergExt" value="Yes">
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="Submit" value="Update"/>
+                                    <input type="Submit" name="addGrp" value="Update"/>
                                 </td>
                             </tr>
                         </table>

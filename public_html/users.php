@@ -70,7 +70,7 @@
                                     <td>" . $row['new user'] . "</td>
                                     <td>
                                         <button class='btn-edit' type='button' name='btn-edit'>
-                                            <a class='btn-icon btn-icon-edit' onclick='showModal(this)'>Edit</a>
+                                            <a class='btn-icon btn-icon-edit'>Edit</a>
                                         </button>
                                         <button class='btn-del' type='button' name='btn-del'>
                                             <a class='btn-icon btn-icon-del'>Delete</a>

@@ -18,7 +18,7 @@
                     <h2>Registrations</h2>
                 </div>
                 <button class='btn-add' type='button' name='btn-add'>
-                    <a class='btn-icon btn-icon-add'>New Registration</a>
+                    <a class='btn-icon btn-icon-add' onclick='showModalAdd(this)'>New Registration</a>
                 </button>
                 <div class="table_wrapper">
                     <table id="datatable" class="display compact hover">
@@ -39,10 +39,10 @@
                                     <td>" . $row['Department'] . "</td>
                                     <td>" . $row['Remaining'] . "</td>
                                     <td>" . $row['Used'] . "</td>
-                                    <td>1" . $row['Total'] . "</td>
+                                    <td>" . ($row['Remaining']+$row['Used']) . "</td>
                                     <td>
                                         <button class='btn-edit' type='button' name='btn-edit'>
-                                            <a class='btn-icon btn-icon-edit' onclick='showModal(this)'>Edit</a>
+                                            <a class='btn-icon btn-icon-edit'>Edit</a>
                                         </button>
                                         <button class='btn-del' type='button' name='btn-del'>
                                             <a class='btn-icon btn-icon-del'>Delete</a>
@@ -70,18 +70,18 @@
             <div class="modal-content">
                 <button id="btn-close" class="close" type="button" name="">X</button>
                 <h2>Edit</h2>
-                <form method="post">
+                <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
                                 <td>Short Name</td>
                                 <td>
-                                    <input type="text" name="" value="4a009b01-46ed-433a-90e9-f1c0eaf12bcb" disabled>
+                                    <input type="text" name="rgtKey" value="4a009b01-46ed-433a-90e9-f1c0eaf12bcb" disabled>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Department</td>
                                 <td>
-                                    <select>
+                                    <select name="dept">
                                         <option value="None">None</option>
                                     </select>
                                 </td>
@@ -89,25 +89,25 @@
                             <tr>
                                 <td>Remaining</td>
                                 <td>
-                                    <input type="number" step="0.01" name="" value="">
+                                    <input type="number" step="0.01" name="remain" value="">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Used</td>
                                 <td>
-                                    <input type="number" name="" value="0" disabled>
+                                    <input type="number" name="used" value="0" disabled>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Total</td>
                                 <td>
-                                    <input type="number" name="" value="0" disabled>
+                                    <input type="number" name="total" value="0" disabled>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="Submit" value="Update"/>
+                                    <input type="Submit" name="addRegist" value="Update"/>
                                 </td>
                             </tr>
                         </table>

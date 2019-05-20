@@ -67,7 +67,7 @@
             <div class="modal-content">
                 <button id="btn-close" class="close" type="button" name="">X</button>
                 <h2>Edit</h2>
-                <form method="post" action="resources/scripts/addOrg.php">
+                <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
                                 <td>Short Name</td>
@@ -96,7 +96,7 @@
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="Submit" value="Update"/>
+                                    <input type="Submit" name="addOrg" value="Update"/>
                                 </td>
                             </tr>
                         </table>
