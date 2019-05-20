@@ -52,7 +52,6 @@
                                                 echo "<option value='" . $eRow['caption'] . "'>" . $eRow['caption'] . "</option>";
                                             }
                                         }
-
                                      ?>
                                     </select>
                                 </td>

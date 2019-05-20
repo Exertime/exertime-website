@@ -8,13 +8,6 @@
 
             $query = "SELECT * FROM ORG_GROUP";
             $result = $mysqli->query($query);
-
-            if($row['Emergency Exit'] == 1) {
-                $row['Emergency Exit'] = "True";
-            }
-            else {
-                $row['Emergency Exit'] = "False";
-            }
         ?>
     </head>
     <body>
@@ -45,6 +38,12 @@
                         </thead>
                         <?php
                             while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                                if($row['Emergency Exit'] == 1) {
+                                    $row['Emergency Exit'] = "True";
+                                }
+                                else {
+                                    $row['Emergency Exit'] = "False";
+                                }
                                 echo "<tr>
                                     <td>" . $row['Organisation'] . "</td>
                                     <td>" . $row['Group_Name'] . "</td>

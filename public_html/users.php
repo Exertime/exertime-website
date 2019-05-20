@@ -8,27 +8,6 @@
 
             $query = "SELECT * FROM USERS";
             $result = $mysqli->query($query);
-
-            if($row['emergency exit'] == 1) {
-                $row['emergency exit'] = "True";
-            }
-            else {
-                $row['emergency exit'] = "False";
-            }
-
-            if($row['status'] == 1) {
-                $row['status'] = "Active";
-            }
-            else {
-                $row['status'] = "Inactive";
-            }
-
-            if($row['new user'] == 1) {
-                $row['new user'] = "True";
-            }
-            else {
-                $row['new user'] = "False";
-            }
         ?>
         <title>Exertime | Users</title>
     </head>
@@ -58,6 +37,26 @@
                         </thead>
                         <?php
                             while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                                if($row['emergency exit'] == 1) {
+                                    $row['emergency exit'] = "True";
+                                }
+                                else {
+                                    $row['emergency exit'] = "False";
+                                }
+
+                                if($row['status'] == 1) {
+                                    $row['status'] = "Active";
+                                }
+                                else {
+                                    $row['status'] = "Inactive";
+                                }
+
+                                if($row['new user'] == 1) {
+                                    $row['new user'] = "True";
+                                }
+                                else {
+                                    $row['new user'] = "False";
+                                }
                                 echo "<tr>
                                     <td>" . $row['org_group'] . "</td>
                                     <td>" . $row['preferred name'] . "</td>

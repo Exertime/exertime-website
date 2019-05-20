@@ -8,13 +8,6 @@
 
             $query = "SELECT * FROM EXERCISES";
             $result = $mysqli->query($query);
-
-            if($row['status'] == 1) {
-                $row['status'] = "Active";
-            }
-            else {
-                $row['status'] = "Inactive";
-            }
         ?>
     </head>
     <body>
@@ -42,6 +35,12 @@
                         </thead>
                         <?php
                             while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                                if($row['status'] == 1) {
+                                    $row['status'] = "Active";
+                                }
+                                else {
+                                    $row['status'] = "Inactive";
+                                }
                                 echo "<tr>
                                     <td>" . $row['caption'] . "</td>
                                     <td>" . $row['type'] . "</td>
