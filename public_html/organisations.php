@@ -18,7 +18,7 @@
                     <h2>Organisations</h2>
                 </div>
                 <button class='btn-add' type='button' name='btn-add'>
-                    <a class='btn-icon btn-icon-add'>New Organisation</a>
+                    <a class='btn-icon btn-icon-add' onclick='showModalAdd(this)'>New Organisation</a>
                 </button>
                 <div class="table_wrapper">
                     <table id="datatable" class="display compact hover">
@@ -40,7 +40,7 @@
                                     <td>" . $row['Walking Ex Delay'] . "</td>
                                     <td>
                                         <button class='btn-edit' type='button' name='btn-edit'>
-                                            <a class='btn-icon btn-icon-edit'  onclick='showModal(this)'>Edit</a>
+                                            <a class='btn-icon btn-icon-edit'  onclick='showModalEdit(this)'>Edit</a>
                                         </button>
                                         <button class='btn-del' type='button' name='btn-del'>
                                             <a class='btn-icon btn-icon-del'>Delete</a>
@@ -67,30 +67,30 @@
             <div class="modal-content">
                 <button id="btn-close" class="close" type="button" name="">X</button>
                 <h2>Edit</h2>
-                <form method="post">
+                <form method="post" action="resources/scripts/addOrg.php">
                         <table class="form">
                             <tr>
                                 <td>Short Name</td>
                                 <td>
-                                    <input type="text"/>
+                                    <input type="text" name="shortName"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Name</td>
                                 <td>
-                                    <input type="text"/>
+                                    <input type="text" name="name"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Countdown Duration</td>
                                 <td>
-                                    <input type="number" step="0.01" name="" value="">
+                                    <input type="number" step="0.01" name="cdnDur" value="">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Walking Ex Delay</td>
                                 <td>
-                                    <input type="number" step="0.01" name="" value="">
+                                    <input type="number" step="0.01" name="walkDelay" value="">
                                 </td>
                             </tr>
                             <tr>

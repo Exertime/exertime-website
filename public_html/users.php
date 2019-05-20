@@ -57,7 +57,7 @@
                                 else {
                                     $row['new user'] = "False";
                                 }
-                                echo "<tr>
+                                echo "<tr id='" . $row['id'] . "'>
                                     <td>" . $row['org_group'] . "</td>
                                     <td>" . $row['preferred name'] . "</td>
                                     <td>" . $row['given name'] . "</td>
