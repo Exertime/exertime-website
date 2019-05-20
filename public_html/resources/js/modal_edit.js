@@ -24,3 +24,7 @@ $(document).ready(function() {
       }
     }
 } );
+
+function showModal(obj){
+     modal.style.display = "block";
+}
