@@ -4,6 +4,10 @@
         <?php
             $title = "Registrations";
             include("include/head.php");
+            include("../db_conn.php");
+
+            $query = "SELECT * FROM REGISTRATION";
+            $result = $mysqli->query($query);
         ?>
     </head>
     <body>
@@ -29,22 +33,22 @@
                             </tr>
                         </thead>
                         <?php
-                            for ($i=0; $i < 3; $i++) {
+                            while($row = $result->fetch_array(MYSQLI_ASSOC)) {
                                 echo "<tr>
-                                        <td>fjas465sf1ghsf4e9gf</td>
-                                        <td>name</td>
-                                        <td>5</td>
-                                        <td>5</td>
-                                        <td>10</td>
-                                        <td>
-                                            <button class='btn-edit' type='button' name='btn-edit'>
-                                                <a class='btn-icon btn-icon-edit' onclick='showModal(this)'>Edit</a>
-                                            </button>
-                                            <button class='btn-del' type='button' name='btn-del'>
-                                                <a class='btn-icon btn-icon-del'>Delete</a>
-                                            </button>
-                                        </td>
-                                    </tr>";
+                                    <td>" . $row['Registration_Key'] . "</td>
+                                    <td>" . $row['Department'] . "</td>
+                                    <td>" . $row['Remaining'] . "</td>
+                                    <td>" . $row['Used'] . "</td>
+                                    <td>1" . $row['Total'] . "</td>
+                                    <td>
+                                        <button class='btn-edit' type='button' name='btn-edit'>
+                                            <a class='btn-icon btn-icon-edit' onclick='showModal(this)'>Edit</a>
+                                        </button>
+                                        <button class='btn-del' type='button' name='btn-del'>
+                                            <a class='btn-icon btn-icon-del'>Delete</a>
+                                        </button>
+                                    </td>
+                                </tr>";
                             }
                          ?>
                         <tfoot>

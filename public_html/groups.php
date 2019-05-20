@@ -4,6 +4,17 @@
         <?php
             $title = "Groups";
             include("include/head.php");
+            include("../db_conn.php");
+
+            $query = "SELECT * FROM ORG_GROUP";
+            $result = $mysqli->query($query);
+
+            if($row['Emergency Exit'] == 1) {
+                $row['Emergency Exit'] = "True";
+            }
+            else {
+                $row['Emergency Exit'] = "False";
+            }
         ?>
     </head>
     <body>
@@ -33,26 +44,26 @@
                             </tr>
                         </thead>
                         <?php
-                            for ($i=0; $i < 3; $i++) {
+                            while($row = $result->fetch_array(MYSQLI_ASSOC)) {
                                 echo "<tr>
-                                        <td>Org Name</td>
-                                        <td>Group</td>
-                                        <td>short name</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>0</td>
-                                        <td>None</td>
-                                        <td>0</td>
-                                        <td>True</td>
-                                        <td>
-                                            <button class='btn-edit' type='button' name='btn-edit'>
-                                                <a class='btn-icon btn-icon-edit' onclick='showModal(this)'>Edit</a>
-                                            </button>
-                                            <button class='btn-del' type='button' name='btn-del'>
-                                                <a class='btn-icon btn-icon-del'>Delete</a>
-                                            </button>
-                                        </td>
-                                    </tr>";
+                                    <td>" . $row['Organisation'] . "</td>
+                                    <td>" . $row['Group_Name'] . "</td>
+                                    <td>" . $row['Group_Short_Name'] . "</td>
+                                    <td>" . $row['Run Exertime Every'] . "</td>
+                                    <td>" . $row['Must Be Completed Every'] . "</td>
+                                    <td>" . $row['Default Postpone Interval'] . "</td>
+                                    <td>" . $row['Walking Exercise'] . "</td>
+                                    <td>" . $row['Walking Ex Delay'] . "</td>
+                                    <td>" . $row['Emergency Exit'] . "</td>
+                                    <td>
+                                        <button class='btn-edit' type='button' name='btn-edit'>
+                                            <a class='btn-icon btn-icon-edit' onclick='showModal(this)'>Edit</a>
+                                        </button>
+                                        <button class='btn-del' type='button' name='btn-del'>
+                                            <a class='btn-icon btn-icon-del'>Delete</a>
+                                        </button>
+                                    </td>
+                                </tr>";
                             }
                          ?>
                         <tfoot>

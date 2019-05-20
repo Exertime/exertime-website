@@ -4,6 +4,17 @@
         <?php
             $title = "Exercises";
             include("include/head.php");
+            include("../db_conn.php");
+
+            $query = "SELECT * FROM EXERCISES";
+            $result = $mysqli->query($query);
+
+            if($row['status'] == 1) {
+                $row['status'] = "Active";
+            }
+            else {
+                $row['status'] = "Inactive";
+            }
         ?>
     </head>
     <body>
@@ -30,16 +41,16 @@
                             </tr>
                         </thead>
                         <?php
-                            for ($i=0; $i < 3; $i++) {
+                            while($row = $result->fetch_array(MYSQLI_ASSOC)) {
                                 echo "<tr>
-                                    <td>exercise</td>
-                                    <td>category</td>
+                                    <td>" . $row['caption'] . "</td>
+                                    <td>" . $row['type'] . "</td>
                                     <td>
-                                        <img class'img-exercise' src='https://via.placeholder.com/140x94.png' alt=''>
+                                        <img class'img-exercise' src='resources/img/exercises/" . $row['img thumbnail'] . "' alt='" . $row['caption'] . "'>
                                     </td>
-                                    <td>active</td>
-                                    <td>100</td>
-                                    <td>min</td>
+                                    <td>" . $row['status'] . "</td>
+                                    <td>" . $row['kj_coefficient'] . "</td>
+                                    <td>" . $row['calculation type'] . "</td>
                                     <td>
                                         <button class='btn-edit' type='button' name='btn-edit'>
                                             <a class='btn-icon btn-icon-edit' onclick='showModal(this)'>Edit</a>

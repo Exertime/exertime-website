@@ -4,6 +4,10 @@
         <?php
             $title = "Organisations";
             include("include/head.php");
+            include("../db_conn.php");
+
+            $query = "SELECT * FROM ORGANISATIONS";
+            $result = $mysqli->query($query);
         ?>
     </head>
     <body>
@@ -28,21 +32,21 @@
                             </tr>
                         </thead>
                         <?php
-                            for ($i=0; $i < 3; $i++) {
+                            while($row = $result->fetch_array(MYSQLI_ASSOC)) {
                                 echo "<tr>
-                                        <td>shortname</td>
-                                        <td>name</td>
-                                        <td>countdown</td>
-                                        <td>walking</td>
-                                        <td>
-                                            <button class='btn-edit' type='button' name='btn-edit'>
-                                                <a class='btn-icon btn-icon-edit'  onclick='showModal(this)'>Edit</a>
-                                            </button>
-                                            <button class='btn-del' type='button' name='btn-del'>
-                                                <a class='btn-icon btn-icon-del'>Delete</a>
-                                            </button>
-                                        </td>
-                                    </tr>";
+                                    <td>" . $row['Short name'] . "</td>
+                                    <td>" . $row['Name'] . "</td>
+                                    <td>" . $row['Countdown Duration'] . "</td>
+                                    <td>" . $row['Walking Ex Delay'] . "</td>
+                                    <td>
+                                        <button class='btn-edit' type='button' name='btn-edit'>
+                                            <a class='btn-icon btn-icon-edit'  onclick='showModal(this)'>Edit</a>
+                                        </button>
+                                        <button class='btn-del' type='button' name='btn-del'>
+                                            <a class='btn-icon btn-icon-del'>Delete</a>
+                                        </button>
+                                    </td>
+                                </tr>";
                             }
                          ?>
                          <tfoot>

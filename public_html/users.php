@@ -6,10 +6,29 @@
             include("include/head.php");
             include("../db_conn.php");
 
-
             $query = "SELECT * FROM USERS";
             $result = $mysqli->query($query);
 
+            if($row['emergency exit'] == 1) {
+                $row['emergency exit'] = "True";
+            }
+            else {
+                $row['emergency exit'] = "False";
+            }
+
+            if($row['status'] == 1) {
+                $row['status'] = "Active";
+            }
+            else {
+                $row['status'] = "Inactive";
+            }
+
+            if($row['new user'] == 1) {
+                $row['new user'] = "True";
+            }
+            else {
+                $row['new user'] = "False";
+            }
         ?>
         <title>Exertime | Users</title>
     </head>
@@ -39,47 +58,26 @@
                         </thead>
                         <?php
                             while($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                                if($row['emergency exit'] == 1) {
-                                    $row['emergency exit'] = "True";
-                                }
-                                else {
-                                    $row['emergency exit'] = "False";
-                                }
-
-                                if($row['status'] == 1) {
-                                    $row['status'] = "Active";
-                                }
-                                else {
-                                    $row['status'] = "Inactive";
-                                }
-
-                                if($row['new user'] == 1) {
-                                    $row['new user'] = "True";
-                                }
-                                else {
-                                    $row['new user'] = "False";
-                                }
-
                                 echo "<tr>
-                                        <td>" . $row['org_group'] . "</td>
-                                        <td>" . $row['preferred name'] . "</td>
-                                        <td>" . $row['given name'] . "</td>
-                                        <td>" . $row['surname'] . "</td>
-                                        <td>" . $row['username'] . "</td>
-                                        <td>" . $row['email'] . "</td>
-                                        <td>" . $row['emergency exit'] . "</td>
-                                        <td>" . $row['status'] . "</td>
-                                        <td>" . $row['calorie goal'] . "</td>
-                                        <td>" . $row['new user'] . "</td>
-                                        <td>
-                                            <button class='btn-edit' type='button' name='btn-edit'>
-                                                <a class='btn-icon btn-icon-edit' onclick='showModal(this)'>Edit</a>
-                                            </button>
-                                            <button class='btn-del' type='button' name='btn-del'>
-                                                <a class='btn-icon btn-icon-del'>Delete</a>
-                                            </button>
-                                        </td>
-                                    </tr>";
+                                    <td>" . $row['org_group'] . "</td>
+                                    <td>" . $row['preferred name'] . "</td>
+                                    <td>" . $row['given name'] . "</td>
+                                    <td>" . $row['surname'] . "</td>
+                                    <td>" . $row['username'] . "</td>
+                                    <td>" . $row['email'] . "</td>
+                                    <td>" . $row['emergency exit'] . "</td>
+                                    <td>" . $row['status'] . "</td>
+                                    <td>" . $row['calorie goal'] . "</td>
+                                    <td>" . $row['new user'] . "</td>
+                                    <td>
+                                        <button class='btn-edit' type='button' name='btn-edit'>
+                                            <a class='btn-icon btn-icon-edit' onclick='showModal(this)'>Edit</a>
+                                        </button>
+                                        <button class='btn-del' type='button' name='btn-del'>
+                                            <a class='btn-icon btn-icon-del'>Delete</a>
+                                        </button>
+                                    </td>
+                                </tr>";
                             }
                          ?>
                         <tfoot>

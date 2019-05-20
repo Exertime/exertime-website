@@ -4,6 +4,14 @@
         <?php
             $title = "Global";
             include("include/head.php");
+            include("../db_conn.php");
+
+            $query = "SELECT * FROM GLOBAL";
+            $globalResult = $mysqli->query($query);
+            $query = "SELECT caption FROM EXERCISES";
+            $exercisesResult = $mysqli->query($query);
+            $query = "SELECT * FROM HINTS";
+            $hintsResult = $mysqli->query($query);
         ?>
     </head>
     <body>
@@ -17,22 +25,35 @@
                 </div>
                 <form method="post">
                         <table class="form">
+                            <?php
+                                while($gRow = $globalResult->fetch_array(MYSQLI_ASSOC)) {
+                             ?>
                             <tr>
                                 <td>Countdown Duration</td>
-                                <td><input type="number"/></td>
+                                <td><input type="number" value="<?php echo $gRow['Countdown Duration'] ?>"/></td>
                             </tr>
                             <tr>
                                 <td>Helpful Hints Delay</td>
-                                <td><input type="number"/></td>
+                                <td><input type="number" value="<?php echo $gRow['Hint Delay'] ?>"/></td>
                             </tr>
                             <tr>
                                 <td>Delay Before Prompt</td>
-                                <td><input type="number"/></td>
+                                <td><input type="number" value="<?php echo $gRow['Delay Before Prompt Exercise'] ?>"/></td>
                             </tr>
                             <tr>
                                 <td>Auto Prompt Exercise</td>
-                                <td><select>
-                                        <option value="1">Take a hike</option>
+                                <td>
+                                    <select>
+                                    <?php
+                                        while($eRow = $exercisesResult->fetch_array(MYSQLI_ASSOC)) {
+                                            if ($eRow['caption'] == $gRow['Auto Prompt Exercise']) {
+                                                echo "<option value='" . $eRow['caption'] . "' selected>" . $eRow['caption'] . "</option>";
+                                            } else {
+                                                echo "<option value='" . $eRow['caption'] . "'>" . $eRow['caption'] . "</option>";
+                                            }
+                                        }
+
+                                     ?>
                                     </select>
                                 </td>
                             </tr>
@@ -40,6 +61,7 @@
                                 <td></td>
                                 <td><input type="Submit" value="Save Settings"/></td>
                             </tr>
+                            <?php } ?>
                         </table>
                 </form>
                 <div class="page-title">
@@ -59,11 +81,11 @@
                             </tr>
                         </thead>
                         <?php
-                            for ($i=0; $i < 3; $i++) {
+                            while($row = $hintsResult->fetch_array(MYSQLI_ASSOC)) {
                                 echo "<tr>
-                                    <td>None</td>
-                                    <td>It appears you have been away from your desk. Simply click Take a Hike, record your walking time, and return to work!</td>
-                                    <td>1</td>
+                                    <td>" . $row['Department'] . "</td>
+                                    <td>" . $row['hint'] . "</td>
+                                    <td>" . $row['Hint Order'] . "</td>
                                     <td>
                                         <button class='btn-edit' type='button' name='btn-edit'>
                                             <a class='btn-icon btn-icon-edit'>Edit</a>
