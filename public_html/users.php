@@ -74,7 +74,7 @@
                                         </button>
                                         <form action='resources/scripts/delete.php' method='post'>
                                         <input type='hidden' name='id' value=".$row['id'].">
-                                            <input type='submit' name='delete_user' class ='btn-icon btn-icon-del' value='Delete'>
+                                            <button type='submit' class='btn-del' name='delete_user'><a class ='btn-icon btn-icon-del'>Delete</a></button>
                                             </form>
                                         
                                     </td>

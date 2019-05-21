@@ -48,8 +48,7 @@
                                         </button>
                                         <form action='resources/scripts/delete.php' method='post'>
                                         <input type='hidden' name='id' value=".$row['Registration_Key'].">
-                                            <input type='submit' name='delete_REG' class ='btn-icon btn-icon-del' value='Delete'>
-                                            </form>
+                                           <button type='submit' class='btn-del' name='delete_REG'><a class ='btn-icon btn-icon-del'>Delete</a></button>
                                     </td>
                                 </tr>";
                             }
