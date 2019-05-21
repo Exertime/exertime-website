@@ -7,7 +7,11 @@
             include("../db_conn.php");
 
             $query = "SELECT * FROM ORG_GROUP";
-            $result = $mysqli->query($query);
+            $grpResult = $mysqli->query($query);
+            $query = "SELECT `Short name` FROM ORGANISATIONS";
+            $orgResult = $mysqli->query($query);
+            $query = "SELECT caption FROM EXERCISES";
+            $exerResult = $mysqli->query($query);
         ?>
     </head>
     <body>
@@ -37,7 +41,7 @@
                             </tr>
                         </thead>
                         <?php
-                            while($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                            while($row = $grpResult->fetch_array(MYSQLI_ASSOC)) {
                                 if($row['Emergency Exit'] == 1) {
                                     $row['Emergency Exit'] = "True";
                                 }
@@ -96,6 +100,11 @@
                                 <td>
                                     <select name"org">
                                         <option value="" disabled selected>Select an Organisation</option>
+                                        <?php
+                                            while($row = $orgResult->fetch_array(MYSQLI_ASSOC)) {
+                                                echo "<option value='" . $row['Short name'] . "'>" . $row['Short name'] . "</option>";
+                                            }
+                                        ?>
                                     </select>
                                 </td>
                             </tr>
@@ -134,6 +143,12 @@
                                 <td>
                                     <select name="walkExer">
                                         <option value="">None</option>
+                                        <?php
+                                            while($row = $exerResult->fetch_array(MYSQLI_ASSOC)) {
+                                                echo "<option value='" . $row['caption'] . "'>" . $row['caption'] . "</option>";
+                                            }
+
+                                        ?>
                                     </select>
                                 </td>
                             </tr>

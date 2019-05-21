@@ -8,6 +8,8 @@
 
             $query = "SELECT * FROM REGISTRATION";
             $result = $mysqli->query($query);
+            $query = "SELECT `Group_Short_Name` FROM ORG_GROUP";
+            $grpResult = $mysqli->query($query);
         ?>
     </head>
     <body>
@@ -74,9 +76,9 @@
                 <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
-                                <td>Short Name</td>
+                                <td>Registration Key</td>
                                 <td>
-                                    <input type="text" name="rgtKey" value="4a009b01-46ed-433a-90e9-f1c0eaf12bcb" disabled>
+                                    <input type="text" name="rgtKey" value="" disabled>
                                 </td>
                             </tr>
                             <tr>
@@ -84,6 +86,11 @@
                                 <td>
                                     <select name="dept">
                                         <option value="None">None</option>
+                                        <?php
+                                            while($row = $grpResult->fetch_array(MYSQLI_ASSOC)) {
+                                                echo "<option value='" . $row['Group_Short_Name'] . "'>" . $row['Group_Short_Name'] . "</option>";
+                                            }
+                                        ?>
                                     </select>
                                 </td>
                             </tr>

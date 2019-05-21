@@ -8,10 +8,12 @@
 
             $query = "SELECT * FROM GLOBAL";
             $globalResult = $mysqli->query($query);
-            $query = "SELECT caption FROM EXERCISES";
+            $query = "SELECT `caption` FROM EXERCISES";
             $exercisesResult = $mysqli->query($query);
             $query = "SELECT * FROM HINTS";
             $hintsResult = $mysqli->query($query);
+            $query = "SELECT `Group_Short_Name` FROM ORG_GROUP";
+            $grpResult = $mysqli->query($query);
         ?>
     </head>
     <body>
@@ -121,6 +123,11 @@
                                 <td>
                                     <select name="dept">
                                         <option value="None">None</option>
+                                        <?php
+                                            while($row = $grpResult->fetch_array(MYSQLI_ASSOC)) {
+                                                echo "<option value='" . $row['Group_Short_Name'] . "'>" . $row['Group_Short_Name'] . "</option>";
+                                            }
+                                        ?>
                                     </select>
                                 </td>
                             </tr>

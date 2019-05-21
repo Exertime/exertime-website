@@ -43,9 +43,11 @@
         if ($_POST['status'] == "Active") {$status = 1;} else {$status = 0;}
         $kjCo = $_POST['kjCo'];
         $calcType = $_POST['calcType'];
+        $img = $cpt.".png";
+        $vid = $cpt.".mp4";
 
-        $query = "INSERT INTO EXERCISES (`type`, `caption`, `status`, `kj_coefficient`, `calculation type`)
-            VALUES ('$type','$cpt','$status','$kjCo','$calcType')";
+        $query = "INSERT INTO EXERCISES (`type`, `caption`, `status`, `kj_coefficient`, `calculation type`, `img thumbnail`, `video file`)
+            VALUES ('$type','$cpt','$status','$kjCo','$calcType','$img', '$vid')";
         $mysqli->query($query);
         $mysqli->close();
 

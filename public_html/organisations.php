@@ -43,9 +43,9 @@
                                             <a class='btn-icon btn-icon-edit'  onclick='showModalEdit(this)'>Edit</a>
                                         </button>
                                         <form action='resources/scripts/delete.php' method='post'>
-                                        <input type='hidden' name='id' value=".$row['Name'].">
+                                            <input type='hidden' name='id' value=".$row['Name'].">
                                             <input type='submit' name='delete_ORG' class ='btn-icon btn-icon-del' value='Delete'>
-                                            </form>
+                                        </form>
                                     </td>
                                 </tr>";
                             }
