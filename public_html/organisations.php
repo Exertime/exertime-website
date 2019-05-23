@@ -17,8 +17,8 @@
                 <div class="page-title">
                     <h2>Organisations</h2>
                 </div>
-                <button class='btn-add' type='button' name='btn-add'>
-                    <a class='btn-icon btn-icon-add' onclick='showModalAdd(this)'>New Organisation</a>
+                <button class='btn-add' type='button' name='btn-add' onclick='showModalAdd(this)'>
+                    <a class='btn-icon btn-icon-add'>New Organisation</a>
                 </button>
                 <div class="table_wrapper">
                     <table id="datatable" class="display compact hover">
@@ -40,7 +40,7 @@
                                     <td>" . $row['Walking Ex Delay'] . "</td>
                                     <td>
                                         <button class='btn-edit' type='button' name='btn-edit'>
-                                            <a class='btn-icon btn-icon-edit'  onclick='showModalEdit(this)'>Edit</a>
+                                            <a class='btn-icon btn-icon-edit'>Edit</a>
                                         </button>
                                         <form action='resources/scripts/delete.php' method='post'>
                                             <input type='hidden' name='id' value=".$row['Name'].">

@@ -19,8 +19,8 @@
                 <div class="page-title">
                     <h2>Registrations</h2>
                 </div>
-                <button class='btn-add' type='button' name='btn-add'>
-                    <a class='btn-icon btn-icon-add' onclick='showModalAdd(this)'>New Registration</a>
+                <button class='btn-add' type='button' name='btn-add' onclick='showModalAdd(this)'>
+                    <a class='btn-icon btn-icon-add'>New Registration</a>
                 </button>
                 <div class="table_wrapper">
                     <table id="datatable" class="display compact hover">
@@ -47,8 +47,9 @@
                                             <a class='btn-icon btn-icon-edit'>Edit</a>
                                         </button>
                                         <form action='resources/scripts/delete.php' method='post'>
-                                        <input type='hidden' name='id' value=".$row['Registration_Key'].">
-                                           <button type='submit' class='btn-del' name='delete_REG'><a class ='btn-icon btn-icon-del'>Delete</a></button>
+                                            <input type='hidden' name='id' value=".$row['Registration_Key'].">
+                                            <button type='submit' class='btn-del' name='delete_REG'><a class ='btn-icon btn-icon-del'>Delete</a></button>
+                                        </form>
                                     </td>
                                 </tr>";
                             }
@@ -73,51 +74,51 @@
                 <button id="btn-close" class="close" type="button" name="">X</button>
                 <h2>Edit</h2>
                 <form method="post" action="resources/scripts/inserts.php">
-                        <table class="form">
-                            <tr>
-                                <td>Registration Key</td>
-                                <td>
-                                    <input type="text" name="rgtKey" value="" disabled>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Department</td>
-                                <td>
-                                    <select name="dept">
-                                        <option value="None">None</option>
-                                        <?php
-                                            while($row = $grpResult->fetch_array(MYSQLI_ASSOC)) {
-                                                echo "<option value='" . $row['Group_Short_Name'] . "'>" . $row['Group_Short_Name'] . "</option>";
-                                            }
-                                        ?>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Remaining</td>
-                                <td>
-                                    <input type="number" step="0.01" name="remain" value="">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Used</td>
-                                <td>
-                                    <input type="number" name="used" value="0" disabled>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Total</td>
-                                <td>
-                                    <input type="number" name="total" value="0" disabled>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <input type="Submit" name="addRegist" value="Update"/>
-                                </td>
-                            </tr>
-                        </table>
+                    <table class="form">
+                        <tr>
+                            <td>Registration Key</td>
+                            <td>
+                                <input type="text" name="rgtKey" value="" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Department</td>
+                            <td>
+                                <select name="dept">
+                                    <option value="None">None</option>
+                                    <?php
+                                        while($row = $grpResult->fetch_array(MYSQLI_ASSOC)) {
+                                            echo "<option value='" . $row['Group_Short_Name'] . "'>" . $row['Group_Short_Name'] . "</option>";
+                                        }
+                                    ?>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Remaining</td>
+                            <td>
+                                <input type="number" step="0.01" name="remain" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Used</td>
+                            <td>
+                                <input type="number" name="used" value="0" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td>
+                                <input type="number" name="total" value="0" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="Submit" name="addRegist" value="Update"/>
+                            </td>
+                        </tr>
+                    </table>
                 </form>
             </div>
         </div>

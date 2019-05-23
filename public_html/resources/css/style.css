@@ -55,17 +55,34 @@ li {}
 
 /**  Buttons **/
 button {
+    margin: 2px;
     border: 1px solid var(--grey);
     border-radius: 5px;
+    padding: 4px;
     background: var(--lighter_grey);
+    color: var(--primary-theme-colour);
+}
+
+button a {
+    color: var(--primary-theme-colour);
 }
 
 button:hover {
     background: var(--light_grey);
+    color: var(--scondary-theme-colour);
+}
+
+button a:hover {
+    color: var(--scondary-theme-colour);
 }
 
 button:active {
     background: var(--scondary-theme-colour);
+    color: var(--black);
+}
+
+button a:active {
+    color: var(--black);
 }
 
 .btn-icon {
@@ -134,19 +151,23 @@ textarea {
 }
 
 input[type="submit"] {
+    margin: 2px;
     border: 1px solid var(--grey);
     border-radius: 5px;
     width: auto;
     background: var(--lighter_grey);
+    color: var(--primary-theme-colour);
     float: right;
 }
 
 input[type="submit"]:hover {
     background: var(--light_grey);
+    color: var(--scondary-theme-colour);
 }
 
 input[type="submit"]:active {
     background: var(--scondary-theme-colour);
+    color: var(--black);
 }
 
 .img-exercise {

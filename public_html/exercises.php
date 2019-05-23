@@ -17,8 +17,8 @@
                 <div class="page-title">
                     <h2>Exercises</h2>
                 </div>
-                <button class='btn-add' type='button' name='btn-add'>
-                    <a class='btn-icon btn-icon-add' onclick='showModalAdd(this)'>New Exercise</a>
+                <button class='btn-add' type='button' name='btn-add' onclick='showModalAdd(this)'>
+                    <a class='btn-icon btn-icon-add'>New Exercise</a>
                 </button>
                 <div class="table_wrapper">
                     <table id="datatable" class="display compact hover">
