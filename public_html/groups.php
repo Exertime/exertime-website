@@ -5,6 +5,16 @@
             $title = "Groups";
             include("include/head.php");
             include("../db_conn.php");
+        
+                include("resources/scripts/session.php");
+        
+           if(isset($_SESSION['access'])){}else{
+                $fromurl="index.php";
+                if( $_SERVER['HTTP_REFERER'] == "" )
+                {
+                    header("Location:".$fromurl); exit;
+                }
+           }
 
             $query = "SELECT * FROM ORG_GROUP";
             $grpResult = $mysqli->query($query);

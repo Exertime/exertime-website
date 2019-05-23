@@ -4,6 +4,16 @@
         <?php
             $title = "Home";
             include("include/head.php");
+        
+                include("resources/scripts/session.php");
+        
+           if(isset($_SESSION['access'])){}else{
+                $fromurl="index.php";
+                if( $_SERVER['HTTP_REFERER'] == "" )
+                {
+                    header("Location:".$fromurl); exit;
+                }
+           }
         ?>
     </head>
     <body>
