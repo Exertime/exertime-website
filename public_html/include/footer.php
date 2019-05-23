@@ -4,7 +4,18 @@
              | Copyright 2012 by Scott Pederson and Dean Cooley</p>
 
         <ul>
-            <li><a href="#">Logout</a></li>
+            <li>
+                <?php
+                    include("resources/scripts/session.php");
+
+                    if(isset($_SESSION['access'])) {
+                      echo  "<a href='resources/scripts/signout.php'>Logout</a>";
+                    } else {
+
+                        echo "<a href='index.php'>Login</a>";
+                    }
+                ?>
+            </li>
             <li> | </li>
             <li><a href="#">Privacy Policy</a></li>
         </ul>

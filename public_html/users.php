@@ -76,7 +76,7 @@
                                         <input type='hidden' name='id' value=".$row['id'].">
                                             <button type='submit' class='btn-del' name='delete_user'><a class ='btn-icon btn-icon-del'>Delete</a></button>
                                             </form>
-                                        
+
                                     </td>
                                 </tr>";
                             }
