@@ -16,7 +16,7 @@
     //if the username from table is not same as the username data from the form(from signin_form.php)
     if($row['username']!=$user || $user=="") {
     	//automatically go back to signin_form and pass the error message
-    	header('Location: ../../index.php?error=invalid_username');
+    	header('Location: ../../index.php?error=Invalid Username');
     }
     //if the username is same as the username data from the form(from signin_form.php)
     else {
@@ -32,7 +32,7 @@
     	}//if the password from table does not match with the password data from the signin form
     	else {
     		//automatically go back to signin_form and pass the error message
-    		header('Location: ../../signin_form.php?error=invalid_password');
+    		header('Location: ../../index.php?error=Invalid Password');
     	}
     }
 ?>
