@@ -1,3 +1,4 @@
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,18 +12,16 @@
 
 
 <!-- datatable plugin (https://datatables.net/examples/data_sources/server_side) -->
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<!-- <script type="text/javascript" src="resources/js/jquery.dataTables.min.js"></script> -->
-<!-- <link rel="stylesheet" type="text/css" href="resources/css/jquery.dataTables.min.css"> -->
+<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> -->
+<script type="text/javascript" src="resources/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/jquery.dataTables.min.css">
 <script type="text/javascript">
     $(document).ready(function() {
         $('#datatable').DataTable( {
             "processing": true,
-            "scrollY": 500,
-            "scrollCollapse": true,
-            "lengthMenu": [[3, 5, 10, 20, -1], [3, 5, 10, 20, "All"]],
-            "pageLength": 5
+            // "serverSide": true,
+            // "ajax": "../resources/scripts/server_processing.php"
         } );
     } );
 </script>

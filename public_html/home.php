@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+$fromurl="signin_form.php";  
+if( $_SERVER['HTTP_REFERER'] == "" ) 
+{ 
+header("Location:".$fromurl); exit; 
+}
+?>
 <html>
     <head>
         <?php
