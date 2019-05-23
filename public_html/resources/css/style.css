@@ -1,6 +1,6 @@
 :root {
     --primary-theme-colour: #009ae4;
-    --scondary-theme-colour: #FE9330;
+    --secondary-theme-colour: #FE9330;
     --footer-colour: var(--black);
     --text-body: #6f6f6f;
     --pale_white: #f2f2f2;
@@ -32,14 +32,14 @@ h1, h2, h3, h4, h5, h6, p, a {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
     padding: 4px;
     font-style: "Segoe UI Light", "Segoe UI", "Century Gothic", Arial, "Times New Roman";
     color: var(--primary-theme-colour);
 }
 
 p {
-    color: var(--lighter_grey);
+    color: var(--text-body);
 }
 
 a {
@@ -69,15 +69,15 @@ button a {
 
 button:hover {
     background: var(--light_grey);
-    color: var(--scondary-theme-colour);
+    color: var(--secondary-theme-colour);
 }
 
 button a:hover {
-    color: var(--scondary-theme-colour);
+    color: var(--secondary-theme-colour);
 }
 
 button:active {
-    background: var(--scondary-theme-colour);
+    background: var(--secondary-theme-colour);
     color: var(--black);
 }
 
@@ -162,11 +162,11 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background: var(--light_grey);
-    color: var(--scondary-theme-colour);
+    color: var(--secondary-theme-colour);
 }
 
 input[type="submit"]:active {
-    background: var(--scondary-theme-colour);
+    background: var(--secondary-theme-colour);
     color: var(--black);
 }
 
@@ -223,12 +223,12 @@ nav a {
 
 nav a:hover {
     background: var(--primary-theme-colour);
-    color: var(--scondary-theme-colour);
+    color: var(--secondary-theme-colour);
 }
 
 nav a.current {
     background: var(--primary-theme-colour);
-    color: var(--scondary-theme-colour);
+    color: var(--secondary-theme-colour);
 }
 
 /***        Body      ***/
@@ -245,6 +245,15 @@ nav a.current {
 .page-content {
     padding: 10px;
     color: var(--text-body);
+}
+
+/** Confrimation Message   **/
+.confirmMsg {
+    margin: 4px;
+    border: 4px solid var(--secondary-theme-colour);
+    border-radius: 4PX;
+    padding: 8px;
+    text-align: center;
 }
 
 /***       Footer      ***/

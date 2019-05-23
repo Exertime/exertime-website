@@ -19,7 +19,10 @@
     $(document).ready(function() {
         $('#datatable').DataTable( {
             "processing": true,
-            "lengthMenu": [[3, 5, 10, 20, -1], [3, 5, 10, 20, "All"]]
+            "scrollY": 500,
+            "scrollCollapse": true,
+            "lengthMenu": [[3, 5, 10, 20, -1], [3, 5, 10, 20, "All"]],
+            "pageLength": 5
         } );
     } );
 </script>

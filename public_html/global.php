@@ -22,6 +22,16 @@
         <div class="wrapper">
             <?php include("include/header.php"); ?>
             <div class="main-content">
+                <?php
+                    if ($_GET['gs'] == "update") {
+                        echo "
+                            <div class='confirmMsg'>
+                                <h3>Settings Updated</h3>
+                                <p>Your changes have now been saved</p>
+                            </div>
+                        ";
+                    }
+                 ?>
                 <div class="page-title">
                     <h2>Settings</h2>
                 </div>
@@ -99,14 +109,14 @@
                                 </tr>";
                             }
                          ?>
-                        <thead>
+                        <tfoot>
                             <tr>
                              <th>Department</th>
                                 <th>Hint</th>
                                 <th>Hint Order</th>
                                 <th>Commands</th>
                             </tr>
-                        </thead>
+                        </tfoot>
                     </table>
                 </div>
             </div>

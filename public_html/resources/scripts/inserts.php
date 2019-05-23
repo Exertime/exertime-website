@@ -111,7 +111,7 @@
         $mysqli->query($query);
         $mysqli->close();
 
-        header('Location: ../../global.php');
+        header('Location: ../../global.php?gs=update');
     }
 
     if (isset($_POST['addHint'])) {
