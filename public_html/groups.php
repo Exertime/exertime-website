@@ -5,9 +5,9 @@
             $title = "Groups";
             include("include/head.php");
             include("../db_conn.php");
-        
+
                 include("resources/scripts/session.php");
-        
+
            if(isset($_SESSION['access'])){}else{
                 $fromurl="index.php";
                 if( $_SERVER['HTTP_REFERER'] == "" )
@@ -69,13 +69,14 @@
                                     <td>" . $row['Walking Ex Delay'] . "</td>
                                     <td>" . $row['Emergency Exit'] . "</td>
                                     <td>
-                                        <button class='btn-edit' type='button' name='btn-edit'>
-                                            <a class='btn-icon btn-icon-edit'>Edit</a>
-                                        </button>
+                                        <form action='editGroup.php' method='post'>
+                                            <input type='hidden' name='id' value=".$row['id'].">
+                                            <button type='submit' class='btn-edit' name='edit_GRP'><a class ='btn-icon btn-icon-edit'>Edit</a></button>
+                                        </form>
                                         <form action='resources/scripts/delete.php' method='post'>
-                                        <input type='hidden' name='id' value=".$row['Group_Name'].">
+                                            <input type='hidden' name='id' value=".$row['Group_Name'].">
                                             <button type='submit' class='btn-del' name='delete_GRP'><a class ='btn-icon btn-icon-del'>Delete</a></button>
-                                            </form>
+                                        </form>
                                     </td>
                                 </tr>";
                             }

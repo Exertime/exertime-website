@@ -5,9 +5,9 @@
             $title = "Global";
             include("include/head.php");
             include("../db_conn.php");
-        
+
                 include("resources/scripts/session.php");
-        
+
            if(isset($_SESSION['access'])){}else{
                 $fromurl="index.php";
                 if( $_SERVER['HTTP_REFERER'] == "" )
@@ -108,9 +108,10 @@
                                     <td>" . $row['hint'] . "</td>
                                     <td>" . $row['Hint Order'] . "</td>
                                     <td>
-                                        <button class='btn-edit' type='button' name='btn-edit'>
-                                            <a class='btn-icon btn-icon-edit'>Edit</a>
-                                        </button>
+                                        <form action='editHint.php' method='post'>
+                                            <input type='hidden' name='id' value=".$row['id'].">
+                                            <button type='submit' class='btn-edit' name='edit_GLB'><a class ='btn-icon btn-icon-edit'>Edit</a></button>
+                                        </form>
                                         <form action='resources/scripts/delete.php' method='post'>
                                         <input type='hidden' name='id' value=".$row['id'].">
                                             <button type='submit' class='btn-del' name='delete_GLB'><a class ='btn-icon btn-icon-del'>Delete</a></button>
