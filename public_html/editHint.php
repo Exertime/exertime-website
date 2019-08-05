@@ -23,6 +23,7 @@
                 while($row=$result->fetch_array(MYSQLI_ASSOC))
                 {
                 echo "<table class='form'>
+                    <input type='hidden' name='id' value=".$row['id'].">
                     <tr>
                         <td>Department</td>
                         <td>
@@ -45,7 +46,7 @@
                     <tr>
                         <td>Hint Order</td>
                         <td>
-                            <input type='number' step='1' name'hintOdr' value='".$row['Hint Order']."'>
+                            <input type='number' step='1' name='hintOdr' value='".$row['Hint Order']."'>
                         </td>
                     </tr>
                     <tr>

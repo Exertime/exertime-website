@@ -69,7 +69,7 @@
                                 }
                                 echo "<tr id='" . $row['id'] . "'>
                                     <td>" . $row['org_group'] . "</td>
-                                    <td>" . $row['preferred name'] . "</td>
+                                    <td>" . $row['prefered name'] . "</td>
                                     <td>" . $row['given name'] . "</td>
                                     <td>" . $row['surname'] . "</td>
                                     <td>" . $row['username'] . "</td>

@@ -56,7 +56,6 @@
  if (isset($_POST['delete_EXE'])) {
         $id = $_POST['id'];
 
-
         $query = "DELETE FROM EXERCISES WHERE ID='$id'";
         $mysqli->query($query);
         $mysqli->close();

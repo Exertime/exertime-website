@@ -65,9 +65,21 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>Thumbnail</td>
+                                <td>
+                                    <input type='file' name='thumbnail' accept='image/*' enctype='multipart/form-data'>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Video</td>
+                                <td>
+                                    <input type='file' name='video' accept='video/*' enctype='multipart/form-data'>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td></td>
                                 <td>
-                                    <input type='Submit' name='addExer' value='Update'>
+                                    <input type='Submit' name='editExer' value='Update'>
                                 </td>
                             </tr>
                         </table>

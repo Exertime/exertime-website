@@ -20,7 +20,7 @@
                     echo "<div>
                         <h2>Edit</h2>
                         <form method='post' action='resources/scripts/edit.php'>
-                        <input type='hidden' name='id' value='.$id.'>
+                        <input type='hidden' name='id' value='".$id."'>
                                 <table class='form'>
                                     <tr>
                                         <td>Department</td>

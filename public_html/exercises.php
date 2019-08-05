@@ -64,7 +64,7 @@
                                         <form action='editExercise.php' method='post'>
                                             <input type='hidden' name='id' value=".$row['id'].">
                                             <button type='submit' class=btn-edit' name='edit_EXE'><a class='btn-icon btn-icon-edit'>Edit</a></button>
-                                        </form
+                                        </form>
                                         <form action='resources/scripts/delete.php' method='post'>
                                             <input type='hidden' name='id' value=".$row['id'].">
                                             <button type='submit' class='btn-del' name='delete_EXE'><a class ='btn-icon btn-icon-del'>Delete</a></button>

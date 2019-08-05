@@ -22,7 +22,8 @@
           <?php
           while($row = $result->fetch_array(MYSQLI_ASSOC))
           {
-          echo "<tr>
+          echo "<input type='hidden' name='id' value=".$row['id'].">
+            <tr>
                 <td>Registration Key</td>
                 <td>
                     <input type='text' name='rgtKey' value='".$row['Registration_Key']."' disabled>
