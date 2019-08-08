@@ -21,7 +21,7 @@
                 <?php
                 while($row = $result->fetch_array(MYSQLI_ASSOC))
                 {
-                echo "<form method='post' action='resources/scripts/edit.php'>
+                echo "<form method='POST' action='resources/scripts/edit.php' enctype='multipart/form-data'>
                   <input type='hidden' name='id' value=".$row['id'].">
                         <table class='form'>
                             <tr>
@@ -67,13 +67,13 @@
                             <tr>
                                 <td>Thumbnail</td>
                                 <td>
-                                    <input type='file' name='thumbnail' accept='image/*' enctype='multipart/form-data'>
+                                    <input type='file' name='thumbnail' accept='image/*'>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Video</td>
                                 <td>
-                                    <input type='file' name='video' accept='video/*' enctype='multipart/form-data'>
+                                    <input type='file' name='video' accept='video/mp4'>
                                 </td>
                             </tr>
                             <tr>

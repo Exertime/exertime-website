@@ -99,19 +99,69 @@
         if ($_POST['status'] == "Active") {$status = 1;} else {$status = 0;}
         $kjCo = $_POST['kjCo'];
         $calcType = $_POST['calcType'];
-        $img = $_POST['thumbnail'];
-        $vid = $_POST['video'];
-        
-        // File Upload
-        $target_dir = "resources/img/exercises";
-        $target_file = $target_dir . basename($_FILES["thumbnail"]["name"]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-        $query = "UPDATE EXERCISES SET `type`='$type', `caption`='$cpt', `status`='$status', `kj_coefficient`='$kjCo', `calculation type`='$calcType', `img thumbnail`='$img', `video file`='$vid'
+        // Image Upload
+        $img = $_FILES['thumbnail'];
+        $imgName = $_FILES['thumbnail']['name'];
+        $imgTmpName = $_FILES['thumbnail']['tmp_name'];
+        $imgSize = $_FILES['thumbnail']['tmp_size'];
+        $imgError = $_FILES['thumbnail']['tmp_error'];
+        $imgType = $_FILES['thumbnail']['tmp_type'];
+
+        $imgExt = explode('.', $imgName);
+        $imgActualExt = strtolower(end($imgExt));
+        $imgNameNew = $cpt.".".$imgActualExt;
+
+        $allowed = array('jpg', 'jpeg', 'png');
+        if(in_array($imgActualExt, $allowed)) {
+          if($imgError == 0) {
+            if($imgSize < 1000000) {
+              $imgDest = '../img/exercises/'.$imgNameNew;
+              print_r($imgDest);
+              move_uploaded_file($imgTmpName, $imgDest);
+              echo("Uploaded!");
+            } else {
+              echo("Your image is too big!");
+            }
+          } else {
+            echo("There was an error uploading your image!");
+          }
+        } else {
+          echo("You can't upload images of this type!");
+        }
+
+        $vid = $_FILES['video'];
+        $vidName = $_FILES['video']['name'];
+        $vidName = $_FILES['thumbnail']['name'];
+        $vidTmpName = $_FILES['thumbnail']['tmp_name'];
+        $vidSize = $_FILES['thumbnail']['tmp_size'];
+        $vidError = $_FILES['thumbnail']['tmp_error'];
+        $vidType = $_FILES['thumbnail']['tmp_type'];
+
+        $vidExt = explode('.', $vidName);
+        $vidActualExt = strtolower(end($vidExt));
+        $vidNameNew = $cpt.".".$vidActualExt;
+
+        $allowed = array('mp4');
+        if(in_array($vidActualExt, $allowed)) {
+          if($vidError == 0) {
+            if($vidSize < 1000000) {
+              $vidDest = '../img/exercises/'.$vidNameNew;
+              print_r($vidDest);
+              move_uploaded_file($imgTmpName, $vidDest);
+              echo("Uploaded!");
+            } else {
+              echo("Your image is too big!");
+            }
+          } else {
+            echo("There was an error uploading your image!");
+          }
+        } else {
+          echo("You can't upload images of this type!");
+        }
+      
+        $query = "UPDATE EXERCISES SET `type`='$type', `caption`='$cpt', `status`='$status', `kj_coefficient`='$kjCo', `calculation type`='$calcType', `img thumbnail`='$imgNameNew', `video file`='$vidNameNew'
                   WHERE `id`='$id'";
-        
-        echo($query);
         $mysqli->query($query);
         $mysqli->close();
 

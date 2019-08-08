@@ -121,6 +121,10 @@ td, th {
     vertical-align: middle;
 }
 
+td img {
+    max-height: 210px;
+}
+
 th {
     text-align: left;
     background-color: var(--light_grey);
