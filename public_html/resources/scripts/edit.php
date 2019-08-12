@@ -130,13 +130,14 @@
           echo("You can't upload images of this type!");
         }
 
+        // Video Upload
         $vid = $_FILES['video'];
         $vidName = $_FILES['video']['name'];
-        $vidName = $_FILES['thumbnail']['name'];
-        $vidTmpName = $_FILES['thumbnail']['tmp_name'];
-        $vidSize = $_FILES['thumbnail']['tmp_size'];
-        $vidError = $_FILES['thumbnail']['tmp_error'];
-        $vidType = $_FILES['thumbnail']['tmp_type'];
+        $vidName = $_FILES['video']['name'];
+        $vidTmpName = $_FILES['video']['tmp_name'];
+        $vidSize = $_FILES['video']['tmp_size'];
+        $vidError = $_FILES['video']['tmp_error'];
+        $vidType = $_FILES['video']['tmp_type'];
 
         $vidExt = explode('.', $vidName);
         $vidActualExt = strtolower(end($vidExt));
@@ -146,18 +147,18 @@
         if(in_array($vidActualExt, $allowed)) {
           if($vidError == 0) {
             if($vidSize < 1000000) {
-              $vidDest = '../img/exercises/'.$vidNameNew;
+              $vidDest = '../vid/exercises/'.$vidNameNew;
               print_r($vidDest);
               move_uploaded_file($imgTmpName, $vidDest);
               echo("Uploaded!");
             } else {
-              echo("Your image is too big!");
+              echo("Your video is too big!");
             }
           } else {
-            echo("There was an error uploading your image!");
+            echo("There was an error uploading your video!");
           }
         } else {
-          echo("You can't upload images of this type!");
+          echo("You can't upload videos of this type!");
         }
       
         $query = "UPDATE EXERCISES SET `type`='$type', `caption`='$cpt', `status`='$status', `kj_coefficient`='$kjCo', `calculation type`='$calcType', `img thumbnail`='$imgNameNew', `video file`='$vidNameNew'
