@@ -2,7 +2,7 @@
     //include the file session.php
     include("session.php");
     //include the file db_conn.php
-    include("../../../db_conn.php");
+    include("../../db_conn.php");
     //receive the username data from the form (in signin_form.php)
     $user=$_POST['username'];
     //receive the password data from the form (in signin_form.php)
@@ -10,9 +10,11 @@
     //query to check whether username is in the table (check whether the user has been signed up)
     $query = "SELECT * FROM USERS WHERE username='$user'";
     //execute query to the database and retrieve the result ($result)
-    $result = $mysqli->query($query);
+    $result = mysqli_query($mysqli, $query);
+
     //convert the result to array (the key of the array will be the column names of the table)
-    	$row=$result->fetch_array(MYSQLI_ASSOC);
+    $row=$result->fetch_array(MYSQLI_ASSOC);
+
     //if the username from table is not same as the username data from the form(from signin_form.php)
     if($row['username']!=$user || $user=="") {
     	//automatically go back to signin_form and pass the error message
