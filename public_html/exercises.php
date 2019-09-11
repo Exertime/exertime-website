@@ -55,7 +55,7 @@
                                     <td>" . $row['caption'] . "</td>
                                     <td>" . $row['type'] . "</td>
                                     <td>
-                                        <img class'img-exercise' src='resources/img/exercises/" . $row['img thumbnail'] . "' alt='" . $row['img thumbnail'] . "'>
+                                        <img class='img-exercise' src='resources/img/exercises/" . $row['img thumbnail'] . "' alt='" . $row['img thumbnail'] . "'>
                                     </td>
                                     <td>" . $row['status'] . "</td>
                                     <td>" . $row['kj_coefficient'] . "</td>
