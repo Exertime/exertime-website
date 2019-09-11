@@ -1,7 +1,7 @@
 <?php
     // $mysqli = new mysqli('localhost', 'nhaig', '390023', 'nhaig');
     // $mysqli = new mysqli('localhost', 'cc44', '227665');
-    $mysqli = new mysqli('localhost', 'root', 'kit301!CMS');
+    $mysqli = new mysqli('localhost', 'root', 'kit301!CMS', 'Exertime');
     
     if(mysqli_connect_errno())
     {

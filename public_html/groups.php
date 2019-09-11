@@ -4,7 +4,7 @@
         <?php
             $title = "Groups";
             include("include/head.php");
-            include("../db_conn.php");
+            include("./db_conn.php");
 
                 include("resources/scripts/session.php");
 

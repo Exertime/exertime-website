@@ -2,11 +2,12 @@
 <html>
     <head>
         <?php
+
             $title = "Organisations";
             include("include/head.php");
             include("../db_conn.php");
 
-                include("resources/scripts/session.php");
+            include("resources/scripts/session.php");
 
            if(isset($_SESSION['access'])){}else{
                 $fromurl="index.php";
