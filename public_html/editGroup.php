@@ -22,12 +22,18 @@
                 <h2>Edit</h2>
                 <form method='post' action='resources/scripts/edit.php'>
                         <table class='form'>
+                            <input type='hidden' name='id' value=".$id.">
                             <tr>
                                 <td>Organisation</td>
                                 <td>
-                                    <select name'org'>
-                                        <option value='' disabled selected>Select an Organisation</option>
-                                    </select>
+                                    <select name='org'>
+                                        <option value='' disabled selected>Select an Organisation</option>";
+                                        
+                                        while($orgRow = $orgResult->fetch_array(MYSQLI_ASSOC)) {
+                                            echo "<option value='" . $orgRow['Short name'] . "'>" . $orgRow['Short name'] . "</option>";
+                                        }
+
+                                    echo "</select>
                                 </td>
                             </tr>
                             <tr>
@@ -64,8 +70,13 @@
                                 <td>Walking Exercise</td>
                                 <td>
                                     <select name='walkExer'>
-                                        <option value=''>None</option>
-                                    </select>
+                                        <option value=''>None</option>";
+
+                                        while($exerRow = $exerResult->fetch_array(MYSQLI_ASSOC)) {
+                                            echo "<option value='" . $exerRow['caption'] . "'>" . $exerRow['caption'] . "</option>";
+                                        }
+
+                                    echo "</select>
                                 </td>
                             </tr>
                             <tr>

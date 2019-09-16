@@ -96,7 +96,6 @@
                             <td>Department</td>
                             <td>
                                 <select name="dept">
-                                    <option value="None">None</option>
                                     <?php
                                         while($row = $grpResult->fetch_array(MYSQLI_ASSOC)) {
                                             echo "<option value='" . $row['Group_Short_Name'] . "'>" . $row['Group_Short_Name'] . "</option>";

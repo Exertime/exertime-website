@@ -19,7 +19,7 @@
     }
 
     if (isset($_POST['editGrp'])) {
-        $id=$_POST['id'];
+        $id = $_POST['id'];
         $org = $_POST['org'];
         $grpName = $_POST['grpName'];
         $grpShrtName = $_POST['grpShrtName'];
@@ -30,7 +30,7 @@
         $walkExerDelay = $_POST['walkExerDelay'];
         $walkExerPrmpt = $_POST['walkExerPrmpt'];
         $notifDiag = $_POST['notifDiag'];
-        if ($_POST['emergExt'] == "Yes") {$emergExt = 1;} else {$emergExt = 0;}
+        if ($_POST['emergExt'] == "Yes") {$emergExt = 1;} else { $emergExt = 0; }
 
         $query = "UPDATE ORG_GROUP SET `Organisation`='$org', `Group_Name`='$grpName', `Group_Short_Name`='$grpShrtName', `Run Exertime Every`='$runEvery', `Must Be Completed Every`='$userEvery',
                   `Default Postpone Interval`='$postponeInt', `Walking Exercise`='$walkExer', `Walking Ex Delay`='$walkExerDelay', `Walking Exercise Prompt`='$walkExerPrmpt', `Notification Dialog Prompt`='$notifDiag',
@@ -87,7 +87,7 @@
         $query = "UPDATE `USERS` SET `username`='$username',`given name`='$gname',`surname`='$surname',
                   `prefered name`='$pname',`email`='$email',`emergency exit`='$exit',`status`='$status',
                   `DOB`='$dob',`gender`='$gender',`job title`='$title',`calorie goal`='$goal',
-                  `new user`='$newUser',`management level`='$role',`organisation`='$department' WHERE `id`='$id'";
+                  `new user`='$newUser',`management level`='$role',`org_group`='$department' WHERE `id`='$id'";
         $mysqli->query($query);
         $mysqli->close();
 
@@ -183,40 +183,7 @@
 
         header('Location: ../../registrations.php');
     }
-//
-//    function generateKey() {
-//        $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
-//        $randomString = '';
-//
-//        for ($i = 0; $i < 8; $i++) {
-//            $index = rand(0, strlen($characters) - 1);
-//            $randomString .= $characters[$index];
-//        }
-//        $randomString .= "-";
-//        for ($i = 0; $i < 4; $i++) {
-//            $index = rand(0, strlen($characters) - 1);
-//            $randomString .= $characters[$index];
-//        }
-//        $randomString .= "-";
-//        for ($i = 0; $i < 4; $i++) {
-//            $index = rand(0, strlen($characters) - 1);
-//            $randomString .= $characters[$index];
-//        }
-//        $randomString .= "-";
-//        for ($i = 0; $i < 4; $i++) {
-//            $index = rand(0, strlen($characters) - 1);
-//            $randomString .= $characters[$index];
-//        }
-//        $randomString .= "-";
-//        for ($i = 0; $i < 12; $i++) {
-//            $index = rand(0, strlen($characters) - 1);
-//            $randomString .= $characters[$index];
-//        }
-//
-//        return $randomString;
-//    }
-//
-//
+
     if (isset($_POST['editHint'])) {
         $id = $_POST['id'];
         $dept = $_POST['dept'];

@@ -9,8 +9,6 @@
           $id=$_POST['id'];
           $query = "SELECT * FROM REGISTRATION WHERE id='$id'";
           $result = $mysqli->query($query);
-          $query = "SELECT `Group_Short_Name` FROM ORG_GROUP";
-          $grpResult = $mysqli->query($query);
       ?>
   </head>
 </head>
@@ -32,13 +30,9 @@
             <tr>
                 <td>Department</td>
                 <td>
-                    <select name='dept'>
-                        <option value=".$row['Department']." selected>".$row['Department']."</option>";
-
-                            while($grpRow = $grpResult->fetch_array(MYSQLI_ASSOC)) {
-                                echo "<option value='" . $grpRow['Group_Short_Name'] . "'>" . $row['Group_Short_Name'] . "</option>";
-                            }
-                  echo "</select>
+                    <select name='dept' disabled>
+                        <option value=".$row['Department']." selected>".$row['Department']."</option>
+                    </select>
                 </td>
             </tr>
             <tr>

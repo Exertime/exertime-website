@@ -109,7 +109,7 @@
                             <tr>
                                 <td>Organisation</td>
                                 <td>
-                                    <select name"org">
+                                    <select name="org">
                                         <option value="" disabled selected>Select an Organisation</option>
                                         <?php
                                             while($row = $orgResult->fetch_array(MYSQLI_ASSOC)) {

@@ -28,11 +28,11 @@
                         <td>Department</td>
                         <td>
                             <select name='dept'>
-                                <option value='".$row['department']."' selected>".$row['department']."</option>";
+                                <option value='None' selected>None</option>";
                                 
-                                    while($grpRow = $grpResult->fetch_array(MYSQLI_ASSOC)) {
-                                        echo "<option value='" . $grpRow['Group_Short_Name'] . "'>" . $grpRow['Group_Short_Name'] . "</option>";
-                                    }
+                                while($grpRow = $grpResult->fetch_array(MYSQLI_ASSOC)) {
+                                    echo "<option value='" . $grpRow['Group_Short_Name'] . "'>" . $grpRow['Group_Short_Name'] . "</option>";
+                                }
                                 
                             echo "</select>
                         </td>

@@ -14,6 +14,8 @@
 
                 $query = "SELECT * FROM USERS WHERE id='$id'";
                 $result = $mysqli->query($query);
+                $query = "SELECT `Group_Short_Name` FROM ORG_GROUP";
+                $grpResult = $mysqli->query($query);
 
                 while($row = $result->fetch_array(MYSQLI_ASSOC))
                 {
@@ -26,8 +28,13 @@
                                         <td>Department</td>
                                         <td>
                                             <select name='department'>
-                                                <option value='None'>None</option>
-                                            </select>
+                                                <option value='None'>None</option>";
+
+                                                while($grpRow = $grpResult->fetch_array(MYSQLI_ASSOC)) {
+                                                    echo "<option value='" . $grpRow['Group_Short_Name'] . "'>" . $grpRow['Group_Short_Name'] . "</option>";
+                                                }
+
+                                            echo "</select>
                                         </td>
                                     </tr>
                                     <tr>
