@@ -20,8 +20,7 @@
         <h2>Edit</h2>
         <form method="post" action="resources/scripts/edit.php">
             <?php
-                while($row=$result->fetch_array(MYSQLI_ASSOC))
-                {
+                while($row=$result->fetch_array(MYSQLI_ASSOC)) {
                 echo "<table class='form'>
                     <input type='hidden' name='id' value=".$row['id'].">
                     <tr>
@@ -31,7 +30,9 @@
                                 <option value='None' selected>None</option>";
                                 
                                 while($grpRow = $grpResult->fetch_array(MYSQLI_ASSOC)) {
-                                    echo "<option value='" . $grpRow['Group_Short_Name'] . "'>" . $grpRow['Group_Short_Name'] . "</option>";
+                                    echo "<option value='" . $grpRow['Group_Short_Name'] . "'";
+                                    if($row['Department'] == $grpRow['Group_Short_Name']) { echo " selected"; }
+                                    echo ">" . $grpRow['Group_Short_Name'] . "</option>";
                                 }
                                 
                             echo "</select>

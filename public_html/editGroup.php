@@ -26,11 +26,12 @@
                             <tr>
                                 <td>Organisation</td>
                                 <td>
-                                    <select name='org'>
-                                        <option value='' disabled selected>Select an Organisation</option>";
+                                    <select name='org'>";
                                         
                                         while($orgRow = $orgResult->fetch_array(MYSQLI_ASSOC)) {
-                                            echo "<option value='" . $orgRow['Short name'] . "'>" . $orgRow['Short name'] . "</option>";
+                                            echo "<option value='" . $orgRow['Short name'] . "'";
+                                            if($row['Organisation'] == $orgRow['Short name']) {echo " selected";}
+                                            echo ">" . $orgRow['Short name'] . "</option>";
                                         }
 
                                     echo "</select>

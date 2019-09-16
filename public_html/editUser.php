@@ -31,7 +31,9 @@
                                                 <option value='None'>None</option>";
 
                                                 while($grpRow = $grpResult->fetch_array(MYSQLI_ASSOC)) {
-                                                    echo "<option value='" . $grpRow['Group_Short_Name'] . "'>" . $grpRow['Group_Short_Name'] . "</option>";
+                                                    echo "<option value='" . $grpRow['Group_Short_Name'] . "'";
+                                                    if($row['org_group'] == $grpRow['Group_Short_Name']) {echo " selected";}
+                                                    echo ">" . $grpRow['Group_Short_Name'] . "</option>";
                                                 }
 
                                             echo "</select>
