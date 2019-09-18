@@ -32,28 +32,19 @@
                     <table id="datatable" class="display compact hover">
                         <thead>
                             <tr>
-                                <th>Group</th>
-                                <th>Prefered Name</th>
                                 <th>Given Names</th>
                                 <th>Surname</th>
+                                <th>Prefered Name</th>
                                 <th>Username</th>
                                 <th>Email</th>
-                                <th>Emergency Exit</th>
+                                <th>Group</th>
                                 <th>Status</th>
-                                <th>Calory Goal(Override)</th>
                                 <th>New User</th>
                                 <th>Commands</th>
                             </tr>
                         </thead>
                         <?php
                             while($row = $result->fetch_array(MYSQLI_ASSOC)) {
-                                if($row['emergency exit'] == 1) {
-                                    $row['emergency exit'] = "True";
-                                }
-                                else {
-                                    $row['emergency exit'] = "False";
-                                }
-
                                 if($row['status'] == 1) {
                                     $row['status'] = "Active";
                                 }
@@ -68,15 +59,13 @@
                                     $row['new user'] = "False";
                                 }
                                 echo "<tr id='" . $row['id'] . "'>
-                                    <td>" . $row['org_group'] . "</td>
-                                    <td>" . $row['prefered name'] . "</td>
                                     <td>" . $row['given name'] . "</td>
                                     <td>" . $row['surname'] . "</td>
+                                    <td>" . $row['prefered name'] . "</td>
                                     <td>" . $row['username'] . "</td>
                                     <td>" . $row['email'] . "</td>
-                                    <td>" . $row['emergency exit'] . "</td>
+                                    <td>" . $row['org_group'] . "</td>
                                     <td>" . $row['status'] . "</td>
-                                    <td>" . $row['calorie goal'] . "</td>
                                     <td>" . $row['new user'] . "</td>
                                     <td>
                                     <form action='editUser.php' method='post'>
@@ -94,15 +83,13 @@
                          ?>
                         <tfoot>
                             <tr>
-                                <th>Group</th>
-                                <th>Prefered Name</th>
                                 <th>Given Names</th>
                                 <th>Surname</th>
+                                <th>Prefered Name</th>
                                 <th>Username</th>
                                 <th>Email</th>
-                                <th>Emergency Exit</th>
+                                <th>Group</th>
                                 <th>Status</th>
-                                <th>Calory Goal(Override)</th>
                                 <th>New User</th>
                                 <th>Commands</th>
                             </tr>

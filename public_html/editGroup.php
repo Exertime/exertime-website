@@ -24,6 +24,18 @@
                         <table class='form'>
                             <input type='hidden' name='id' value=".$id.">
                             <tr>
+                                <td>Group Name</td>
+                                <td>
+                                    <input type='text' name='grpName' value='".$row['Group_Name']."'>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Group Short Name</td>
+                                <td>
+                                    <input type='text' name='grpShrtName' value='".$row['Group_Short_Name']."'>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Organisation</td>
                                 <td>
                                     <select name='org'>";
@@ -35,18 +47,6 @@
                                         }
 
                                     echo "</select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Group Name</td>
-                                <td>
-                                    <input type='text' name='grpName' value='".$row['Group_Name']."'>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Group Short Name</td>
-                                <td>
-                                    <input type='text' name='grpShrtName' value='".$row['Group_Short_Name']."'>
                                 </td>
                             </tr>
                             <tr>

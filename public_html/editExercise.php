@@ -31,6 +31,24 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>Status</td>
+                                <td>
+                                    <select name='status'>
+                                        <option value='Active'>Active</option>
+                                        <option value='Inactive'>Inactive</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Calculation Type</td>
+                                <td>
+                                    <select name='calcType'>
+                                        <option value='Repetitions'>Repetition</option>
+                                        <option value='Duration'>Duration</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Type</td>
                                 <td>
                                     <select name='type'>
@@ -41,27 +59,9 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Status</td>
-                                <td>
-                                    <select name='status'>
-                                        <option value='Active'>Active</option>
-                                        <option value='Inactive'>Inactive</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td>Kilojoule Coefficient</td>
                                 <td>
                                     <input type='number' step='0.000001' name='kjCo' value=".$row['kj_coefficient'].">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Calculation Type</td>
-                                <td>
-                                    <select name='calcType'>
-                                        <option value='Repetitions'>Repetition</option>
-                                        <option value='Duration'>Duration</option>
-                                    </select>
                                 </td>
                             </tr>
                             <tr>

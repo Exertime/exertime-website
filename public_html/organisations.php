@@ -35,20 +35,16 @@
                     <table id="datatable" class="display compact hover">
                         <thead>
                             <tr>
-                                <th>Short Name</th>
                                 <th>Name</th>
-                                <th>Countdown Duration</th>
-                                <th>Walking Ex Delay</th>
+                                <th>Short Name</th>
                                 <th>Commands</th>
                             </tr>
                         </thead>
                         <?php
                             while($row = $result->fetch_array(MYSQLI_ASSOC)) {
                                 echo "<tr>
-                                    <td>" . $row['Short name'] . "</td>
                                     <td>" . $row['Name'] . "</td>
-                                    <td>" . $row['Countdown Duration'] . "</td>
-                                    <td>" . $row['Walking Ex Delay'] . "</td>
+                                    <td>" . $row['Short name'] . "</td>
                                     <td>
                                         <form action='editOrg.php' method='post'>
                                             <input type='hidden' name='id' value=".$row['id'].">
@@ -64,10 +60,8 @@
                          ?>
                          <tfoot>
                             <tr>
-                                <th>Short Name</th>
                                 <th>Name</th>
-                                <th>Countdown Duration</th>
-                                <th>Walking Ex Delay</th>
+                                <th>Short Name</th>
                                 <th>Commands</th>
                             </tr>
                         </tfoot>
@@ -83,15 +77,15 @@
                 <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
-                                <td>Short Name</td>
-                                <td>
-                                    <input type="text" name="shortName"/>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td>Name</td>
                                 <td>
                                     <input type="text" name="name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Short Name</td>
+                                <td>
+                                    <input type="text" name="shortName"/>
                                 </td>
                             </tr>
                             <tr>

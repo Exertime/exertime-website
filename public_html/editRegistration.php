@@ -21,18 +21,18 @@
           while($row = $result->fetch_array(MYSQLI_ASSOC))
           {
           echo "<input type='hidden' name='id' value=".$row['id'].">
+          <tr>
+              <td>Department</td>
+              <td>
+                  <select name='dept' disabled>
+                      <option value=".$row['Department']." selected>".$row['Department']."</option>
+                  </select>
+              </td>
+          </tr>
             <tr>
                 <td>Registration Key</td>
                 <td>
                     <input type='text' name='rgtKey' value='".$row['Registration_Key']."' disabled>
-                </td>
-            </tr>
-            <tr>
-                <td>Department</td>
-                <td>
-                    <select name='dept' disabled>
-                        <option value=".$row['Department']." selected>".$row['Department']."</option>
-                    </select>
                 </td>
             </tr>
             <tr>

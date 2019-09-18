@@ -22,15 +22,15 @@
                                 <input type='hidden' name='id' value=".$row['id'].">
                             </tr>
                             <tr>
-                                <td>Short Name</td>
-                                <td>
-                                    <input type='text' name='shortName' value=".$row['Short name'].">
-                                </td>
-                            </tr>
-                            <tr>
                                 <td>Name</td>
                                 <td>
                                     <input type='text' name='name' value='".$row['Name']."'>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Short Name</td>
+                                <td>
+                                    <input type='text' name='shortName' value=".$row['Short name'].">
                                 </td>
                             </tr>
                             <tr>

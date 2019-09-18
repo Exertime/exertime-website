@@ -38,36 +38,18 @@
                     <table id="datatable" class="display compact hover">
                         <thead>
                             <tr>
-                                <th>Organisation</th>
                                 <th>Group Name</th>
                                 <th>Group Short Name</th>
-                                <th>Run Exertime Every</th>
-                                <th>Exertime Completion</th>
-                                <th>Default Postpone Int</th>
-                                <th>Walking Ex</th>
-                                <th>Walking Ex Delay</th>
-                                <th>Emergency Exit</th>
+                                <th>Organisation</th>
                                 <th>Commands</th>
                             </tr>
                         </thead>
                         <?php
                             while($row = $grpResult->fetch_array(MYSQLI_ASSOC)) {
-                                if($row['Emergency Exit'] == 1) {
-                                    $row['Emergency Exit'] = "True";
-                                }
-                                else {
-                                    $row['Emergency Exit'] = "False";
-                                }
                                 echo "<tr>
-                                    <td>" . $row['Organisation'] . "</td>
                                     <td>" . $row['Group_Name'] . "</td>
                                     <td>" . $row['Group_Short_Name'] . "</td>
-                                    <td>" . $row['Run Exertime Every'] . "</td>
-                                    <td>" . $row['Must Be Completed Every'] . "</td>
-                                    <td>" . $row['Default Postpone Interval'] . "</td>
-                                    <td>" . $row['Walking Exercise'] . "</td>
-                                    <td>" . $row['Walking Ex Delay'] . "</td>
-                                    <td>" . $row['Emergency Exit'] . "</td>
+                                    <td>" . $row['Organisation'] . "</td>
                                     <td>
                                         <form action='editGroup.php' method='post'>
                                             <input type='hidden' name='id' value=".$row['id'].">
@@ -83,15 +65,9 @@
                          ?>
                         <tfoot>
                             <tr>
-                                <th>Organisation</th>
                                 <th>Group Name</th>
                                 <th>Group Short Name</th>
-                                <th>Run Exertime Every</th>
-                                <th>Exertime Completion</th>
-                                <th>Default Postpone Int</th>
-                                <th>Walking Ex</th>
-                                <th>Walking Ex Delay</th>
-                                <th>Emergency Exit</th>
+                                <th>Organisation</th>
                                 <th>Commands</th>
                             </tr>
                         </tfoot>
@@ -107,6 +83,18 @@
                 <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
+                                <td>Group Name</td>
+                                <td>
+                                    <input type="text" name="grpName"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Group Short Name</td>
+                                <td>
+                                    <input type="text" name="grpShrtName"/>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Organisation</td>
                                 <td>
                                     <select name="org">
@@ -117,18 +105,6 @@
                                             }
                                         ?>
                                     </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Group Name</td>
-                                <td>
-                                    <input type="text" name="grpName"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Group Short Name</td>
-                                <td>
-                                    <input type="text" name="grpShrtName"/>
                                 </td>
                             </tr>
                             <tr>

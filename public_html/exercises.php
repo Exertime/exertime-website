@@ -35,11 +35,11 @@
                         <thead>
                             <tr>
                                 <th>Caption</th>
-                                <th>Type</th>
                                 <th>Image</th>
                                 <th>Status</th>
-                                <th>Kilojoules</th>
                                 <th>Calc. Type</th>
+                                <th>Type</th>
+                                <th>Kilojoules</th>
                                 <th>Commands</th>
                             </tr>
                         </thead>
@@ -53,13 +53,13 @@
                                 }
                                 echo "<tr>
                                     <td>" . $row['caption'] . "</td>
-                                    <td>" . $row['type'] . "</td>
                                     <td>
                                         <img class='img-exercise' src='resources/img/exercises/" . $row['img thumbnail'] . "' alt='" . $row['img thumbnail'] . "'>
                                     </td>
                                     <td>" . $row['status'] . "</td>
-                                    <td>" . $row['kj_coefficient'] . "</td>
                                     <td>" . $row['calculation type'] . "</td>
+                                    <td>" . $row['type'] . "</td>
+                                    <td>" . $row['kj_coefficient'] . "</td>
                                     <td>
                                         <form action='editExercise.php' method='post'>
                                             <input type='hidden' name='id' value=".$row['id'].">
@@ -76,11 +76,11 @@
                          <tfoot>
                             <tr>
                                 <th>Caption</th>
-                                <th>Type</th>
                                 <th>Image</th>
                                 <th>Status</th>
-                                <th>Kilojoules</th>
                                 <th>Calc. Type</th>
+                                <th>Type</th>
+                                <th>Kilojoules</th>
                                 <th>Commands</th>
                             </tr>
                         </tfoot>
@@ -102,6 +102,24 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>Status</td>
+                                <td>
+                                    <select name="status">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Calculation Type</td>
+                                <td>
+                                    <select name="calcType">
+                                        <option value="Repetitions">Repetition</option>
+                                        <option value="Duration">Duration</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Type</td>
                                 <td>
                                     <select name="type">
@@ -112,27 +130,9 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Status</td>
-                                <td>
-                                    <select name="status">
-                                        <option value="Active">Active</option>
-                                        <option value="Inactive">Inactive</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td>Kilojoule Coefficient</td>
                                 <td>
                                     <input type="number" step="0.000001" name="kjCo" value="">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Calculation Type</td>
-                                <td>
-                                    <select name="calcType">
-                                        <option value="Repetitions">Repetition</option>
-                                        <option value="Duration">Duration</option>
-                                    </select>
                                 </td>
                             </tr>
                             <tr>

@@ -25,21 +25,6 @@
                         <input type='hidden' name='id' value='".$id."'>
                                 <table class='form'>
                                     <tr>
-                                        <td>Department</td>
-                                        <td>
-                                            <select name='department'>
-                                                <option value='None'>None</option>";
-
-                                                while($grpRow = $grpResult->fetch_array(MYSQLI_ASSOC)) {
-                                                    echo "<option value='" . $grpRow['Group_Short_Name'] . "'";
-                                                    if($row['org_group'] == $grpRow['Group_Short_Name']) {echo " selected";}
-                                                    echo ">" . $grpRow['Group_Short_Name'] . "</option>";
-                                                }
-
-                                            echo "</select>
-                                        </td>
-                                    </tr>
-                                    <tr>
                                         <td>Given Names</td>
                                         <td>
                                             <input type='text' name='given name' value='".$row['given name']."'>
@@ -70,13 +55,24 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Emergency Exit</td>
+                                        <td>Department</td>
                                         <td>
-                                            <select name='exit'>
-                                                <option value='department'>Department</option>
-                                                <option value='yes'>Yes</option>
-                                                <option value='no'>No</option>
-                                            </select>
+                                            <select name='department'>
+                                                <option value='None'>None</option>";
+
+                                                while($grpRow = $grpResult->fetch_array(MYSQLI_ASSOC)) {
+                                                    echo "<option value='" . $grpRow['Group_Short_Name'] . "'";
+                                                    if($row['org_group'] == $grpRow['Group_Short_Name']) {echo " selected";}
+                                                    echo ">" . $grpRow['Group_Short_Name'] . "</option>";
+                                                }
+
+                                            echo "</select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Job Title</td>
+                                        <td>
+                                            <input type='text' name='job title' value='".$row['job title']."'>
                                         </td>
                                     </tr>
                                     <tr>
@@ -89,9 +85,9 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>DOB</td>
+                                        <td>New User</td>
                                         <td>
-                                            <input type='date' name='dob' value=".$row['DOB'].">
+                                            <input type='checkbox' name='new user' value='true'>
                                         </td>
                                     </tr>
                                     <tr>
@@ -101,15 +97,15 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Height</td>
+                                        <td>DOB</td>
                                         <td>
-                                            <input type='number' step='0.01' name='height' value=''>
+                                            <input type='date' name='dob' value=".$row['DOB'].">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Job Title</td>
+                                        <td>Height</td>
                                         <td>
-                                            <input type='text' name='job title' value='".$row['job title']."'>
+                                            <input type='number' step='0.01' name='height' value=''>
                                         </td>
                                     </tr>
                                     <tr>
@@ -119,9 +115,13 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>New User</td>
+                                        <td>Emergency Exit</td>
                                         <td>
-                                            <input type='checkbox' name='new user' value='true'>
+                                            <select name='exit'>
+                                                <option value='department'>Department</option>
+                                                <option value='yes'>Yes</option>
+                                                <option value='no'>No</option>
+                                            </select>
                                         </td>
                                     </tr>
                                     <tr>
