@@ -83,19 +83,19 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Short Name</td>
+                                <td>Short name</td>
                                 <td>
                                     <input type="text" name="shortName"/>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Countdown Duration</td>
+                                <td>Countdown duration</td>
                                 <td>
                                     <input type="number" step="0.01" name="cdnDur" value="">
                                 </td>
                             </tr>
                             <tr>
-                                <td>Walking Ex Delay</td>
+                                <td>Default exercise delay</td>
                                 <td>
                                     <input type="number" step="0.01" name="walkDelay" value="">
                                 </td>

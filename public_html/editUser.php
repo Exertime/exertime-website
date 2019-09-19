@@ -55,7 +55,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Department</td>
+                                        <td>Group</td>
                                         <td>
                                             <select name='department'>
                                                 <option value='None'>None</option>";

@@ -108,13 +108,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Run Exertime every</td>
+                                <td>Prompt every</td>
                                 <td>
                                     <input type="number" step="1" name="runEvery" value="">
                                 </td>
                             </tr>
                             <tr>
-                                <td>Completed by user every</td>
+                                <td>Compulsory completion every</td>
                                 <td>
                                     <input type="number" step="1" name="usrEvery" value="">
                                 </td>
@@ -126,7 +126,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Walking Exercise</td>
+                                <td>Default exercise</td>
                                 <td>
                                     <select name="walkExer">
                                         <option value="">None</option>
@@ -140,19 +140,19 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Walking Exercise Delay</td>
+                                <td>Default exercise Delay</td>
                                 <td>
                                     <input type="number" step="1" name="walkExerDelay" value="">
                                 </td>
                             </tr>
                             <tr>
-                                <td>Walking Exercise Prompt</td>
+                                <td>Default exercise prompt</td>
                                 <td>
                                     <textarea name="walkExerPrmpt"></textarea>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Notification Dialog Prompt</td>
+                                <td>Notification prompt</td>
                                 <td>
                                     <textarea name="notifDiag"></textarea>
                                 </td>

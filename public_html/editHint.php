@@ -24,7 +24,7 @@
                 echo "<table class='form'>
                     <input type='hidden' name='id' value=".$row['id'].">
                     <tr>
-                        <td>Department</td>
+                        <td>Group</td>
                         <td>
                             <select name='dept'>
                                 <option value='None' selected>None</option>";

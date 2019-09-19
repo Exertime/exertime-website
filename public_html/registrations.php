@@ -36,7 +36,7 @@
                     <table id="datatable" class="display compact hover">
                         <thead>
                             <tr>
-                                <th>Department</th>
+                                <th>Group</th>
                                 <th>Registration Key</th>
                                 <th>Remaining</th>
                                 <th>Used</th>
@@ -67,7 +67,7 @@
                          ?>
                         <tfoot>
                             <tr>
-                                <th>Department</th>
+                                <th>Group</th>
                                 <th>Registration Key</th>
                                 <th>Remaining</th>
                                 <th>Used</th>
@@ -87,7 +87,7 @@
                 <form method="post" action="resources/scripts/inserts.php">
                     <table class="form">
                         <tr>
-                            <td>Department</td>
+                            <td>Group</td>
                             <td>
                                 <select name="dept">
                                     <?php

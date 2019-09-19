@@ -22,7 +22,7 @@
           {
           echo "<input type='hidden' name='id' value=".$row['id'].">
           <tr>
-              <td>Department</td>
+              <td>Group</td>
               <td>
                   <select name='dept' disabled>
                       <option value=".$row['Department']." selected>".$row['Department']."</option>

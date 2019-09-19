@@ -51,19 +51,19 @@
                                 while($gRow = $globalResult->fetch_array(MYSQLI_ASSOC)) {
                              ?>
                             <tr>
-                                <td>Countdown Duration</td>
+                                <td>Countdown duration</td>
                                 <td><input type="number" name="cdnDur" value="<?php echo $gRow['Countdown Duration'] ?>"/></td>
                             </tr>
                             <tr>
-                                <td>Helpful Hints Delay</td>
+                                <td>Helpful hints delay</td>
                                 <td><input type="number" name="hintDelay" value="<?php echo $gRow['Hint Delay'] ?>"/></td>
                             </tr>
                             <tr>
-                                <td>Delay Before Prompt</td>
+                                <td>Default exercise delay</td>
                                 <td><input type="number" name="delayPrmpt" value="<?php echo $gRow['Delay Before Prompt Exercise'] ?>"/></td>
                             </tr>
                             <tr>
-                                <td>Auto Prompt Exercise</td>
+                                <td>Default exercise</td>
                                 <td>
                                     <select name="autoPrmpt">
                                     <?php
@@ -95,7 +95,7 @@
                     <table id="datatable" class="display compact hover">
                         <thead>
                             <tr>
-                                <th>Department</th>
+                                <th>Group</th>
                                 <th>Hint</th>
                                 <th>Hint Order</th>
                                 <th>Commands</th>
@@ -122,7 +122,7 @@
                          ?>
                         <tfoot>
                             <tr>
-                             <th>Department</th>
+                             <th>Group</th>
                                 <th>Hint</th>
                                 <th>Hint Order</th>
                                 <th>Commands</th>
@@ -140,7 +140,7 @@
                 <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
-                                <td>Department</td>
+                                <td>Group</td>
                                 <td>
                                     <select name="dept">
                                         <option value="None">None</option>

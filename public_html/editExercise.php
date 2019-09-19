@@ -25,7 +25,7 @@
                   <input type='hidden' name='id' value=".$row['id'].">
                         <table class='form'>
                             <tr>
-                                <td>Caption</td>
+                                <td>Exercise Name</td>
                                 <td>
                                     <input type='text' name='cpt' value='".$row['caption']."'/>
                                 </td>
@@ -40,7 +40,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Calculation Type</td>
+                                <td>Exercise type</td>
                                 <td>
                                     <select name='calcType'>
                                         <option value='Repetitions'>Repetition</option>
@@ -49,7 +49,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Type</td>
+                                <td>Category</td>
                                 <td>
                                     <select name='type'>
                                         <option value='Easy'>Easy</option>

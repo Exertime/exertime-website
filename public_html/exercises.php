@@ -34,11 +34,11 @@
                     <table id="datatable" class="display compact hover">
                         <thead>
                             <tr>
-                                <th>Caption</th>
+                                <th>Exercise Name</th>
                                 <th>Image</th>
                                 <th>Status</th>
-                                <th>Calc. Type</th>
-                                <th>Type</th>
+                                <th>Exercise Type</th>
+                                <th>Category</th>
                                 <th>Kilojoules</th>
                                 <th>Commands</th>
                             </tr>
@@ -75,11 +75,11 @@
                          ?>
                          <tfoot>
                             <tr>
-                                <th>Caption</th>
+                                <th>Exercise Name</th>
                                 <th>Image</th>
                                 <th>Status</th>
-                                <th>Calc. Type</th>
-                                <th>Type</th>
+                                <th>Exercixe Type</th>
+                                <th>Category</th>
                                 <th>Kilojoules</th>
                                 <th>Commands</th>
                             </tr>
@@ -96,7 +96,7 @@
                 <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
-                                <td>Caption</td>
+                                <td>Exercise Name</td>
                                 <td>
                                     <input type="text" name="cpt"/>
                                 </td>
@@ -111,7 +111,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Calculation Type</td>
+                                <td>Exercise Type</td>
                                 <td>
                                     <select name="calcType">
                                         <option value="Repetitions">Repetition</option>
@@ -120,7 +120,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Type</td>
+                                <td>Category</td>
                                 <td>
                                     <select name="type">
                                         <option value="Easy">Easy</option>
