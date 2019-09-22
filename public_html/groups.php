@@ -15,14 +15,33 @@
                     header("Location:".$fromurl); exit;
                 }
            }
+           $org = $_SESSION['organisation'];
+           		   $group = $_SESSION['group'];
 
-            $query = "SELECT * FROM ORG_GROUP";
-            $grpResult = $mysqli->query($query);
-            $query = "SELECT `Short name` FROM ORGANISATIONS";
-            $orgResult = $mysqli->query($query);
-            $query = "SELECT caption FROM EXERCISES";
-            $exerResult = $mysqli->query($query);
-        ?>
+           		   switch ($_SESSION['access'])
+           		   {
+           			case 1:
+           				$query = "SELECT * FROM ORG_GROUP";
+           				$grpResult = $mysqli->query($query);
+           				$query = "SELECT `Short name` FROM ORGANISATIONS";
+           				$orgResult = $mysqli->query($query);
+           				break;
+           			case 2:
+           				$query = "SELECT * FROM ORG_GROUP WHERE `Organisation` = '$org'";
+           				$grpResult = $mysqli->query($query);
+           				$query = "SELECT `Short name` FROM ORGANISATIONS";
+           				$orgResult = $mysqli->query($query);
+           				break;
+           			case 3:
+           				$query = "SELECT * FROM ORG_GROUP WHERE `Group_Short_Name` = '$group' AND `Organisation` = '$org'";
+           				$grpResult = $mysqli->query($query);
+           				$query = "SELECT `Short name` FROM ORGANISATIONS";
+           				$orgResult = $mysqli->query($query);
+           				break;
+           			}
+                       $query = "SELECT caption FROM EXERCISES";
+                       $exerResult = $mysqli->query($query);
+                   ?>
     </head>
     <body>
         <div class="wrapper">

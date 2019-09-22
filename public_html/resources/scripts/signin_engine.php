@@ -29,6 +29,8 @@
     		$session_user=$row['username'];
     		$_SESSION['session_user']=$session_user;
             $_SESSION['access'] = $row['management level'];
+            $_SESSION['organisation'] = $row['organisation'];
+            $_SESSION['group'] = $row['org_group'];
     		//automatically go to signin_success.php
     		header('Location: ../../home.php');
 

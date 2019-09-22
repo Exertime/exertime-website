@@ -16,9 +16,18 @@
                     header("Location:".$fromurl); exit;
                 }
            }
-
-            $query = "SELECT * FROM ORGANISATIONS";
-            $result = $mysqli->query($query);
+           $org = $_SESSION['organisation'];
+		       switch ($_SESSION['access'])
+           {
+              case 1:
+                $query = "SELECT * FROM ORGANISATIONS";
+                $result = $mysqli->query($query);
+                break;
+              case 2:
+                $query = "SELECT * FROM ORGANISATIONS WHERE `Short name`='$org'";
+                $result = $mysqli->query($query);
+                break;
+          }
         ?>
     </head>
     <body>

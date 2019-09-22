@@ -127,10 +127,27 @@
                                     <tr>
                                         <td>User Role</td>
                                         <td>
-                                            <select name='role'>
-                                                <option value='std'>Standard User</option>
-                                                <option value='dep'>Department Manager</option>
-                                            </select>
+                                        <select name='role'>";
+                                        switch ($_SESSION['access'])
+                                        {
+                                          case 1:
+                                            echo "<option value='4'>Standard User</option>
+                                            <option value='3'>Group Manager</option>
+                                            <option value='2'>Manager</option>
+                                            <option value='1'>Super User</option>";
+                                            break;
+                                          case 2:
+                                            echo "<option value='4'>Standard User</option>
+                                            <option value='3'>Group Manager</option>
+                                            <option value='2'>Manager</option>";
+                                            break;
+                                          case 3:
+                                            echo "<option value='4'>Standard User</option>
+                                            <option value='3'>Group Manager</option>";
+                                            break;
+                                        }
+
+                                        echo "</select>
                                         </td>
                                     </tr>
                                     <tr>

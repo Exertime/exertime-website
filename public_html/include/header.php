@@ -7,21 +7,39 @@
             <?php
                 include("resources/scripts/session.php");
 
-                if(isset($_SESSION['access'])) {
-             ?>
-            <li><img src="./resources/img/head_logo.PNG" alt="Logo"></li>
-            <li><a href="home.php" <?php if ($title == "Home") {echo " class=\"current\"";} ?>>Home</a></li>
-            <li><a href="organisations.php"  <?php if ($title == "Organisations") {echo " class=\"current\"";} ?>>Organisations</a></li>
-            <li><a href="groups.php"  <?php if ($title == "Groups") {echo " class=\"current\"";} ?>>Groups</a></li>
-            <li><a href="users.php"  <?php if ($title == "Users") {echo " class=\"current\"";} ?>>Users</a></li>
-            <li><a href="exercises.php"  <?php if ($title == "Exercises") {echo " class=\"current\"";} ?>>Exercises</a></li>
-            <li><a href="registrations.php"  <?php if ($title == "Registrations") {echo " class=\"current\"";} ?>>Registrations</a></li>
-            <li><a href="global.php"  <?php if ($title == "Global") {echo " class=\"current\"";} ?>>Global</a></li>
+                if ($_SESSION['access']) {
 
-            <?php
-                } else {
+                    echo "<li><img src='./resources/img/head_logo.PNG' alt='Logo'></li>
+                    <li><a href='home.php'";
+					if ($title == 'Home') {echo " class=\'current\'";}
+					echo ">Home</a></li>";
+
+					if($_SESSION['access'] != 3){
+                    echo "<li><a href='organisations.php'";
+					if ($title == 'Organisations') {echo " class=\'current\'";}
+					echo ">Organisations</a></li>";}
+
+					echo "<li><a href='groups.php'";
+					if ($title == 'Groups') {echo " class=\'current\'";}
+					echo ">Groups</a></li>
+                    <li><a href='users.php'";
+					if ($title == 'Users') {echo ' class=\'current\'';}
+					echo ">Users</a></li>";
+
+					if($_SESSION['access'] == 1){
+					echo "<li><a href='exercises.php'";
+					if ($title == 'Exercises') {echo " class=\'current\'";}
+					echo ">Exercises</a></li>
+                    <li><a href='registrations.php'";
+					if ($title == 'Registrations') {echo " class=\'current\'";}
+					echo ">Registrations</a></li>
+                    <li><a href='global.php'";
+					if ($title == 'Global') {echo ' class=\'current\'';}
+					echo ">Global</a></li>";}
+				}
+                  else {
                     echo "<li><img src='./resources/img/head_logo.PNG' alt='Logo'></li>";
-                }
+                  }
              ?>
         </ul>
     </nav>

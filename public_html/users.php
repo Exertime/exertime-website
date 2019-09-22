@@ -16,8 +16,25 @@
                 }
            }
 
-            $query = "SELECT * FROM USERS";
-            $result = $mysqli->query($query);
+
+			        $org = $_SESSION['organisation'];
+			        $group = $_SESSION['group'];
+
+            switch ($_SESSION['access'])
+           {
+              case 1:
+                $query = "SELECT * FROM USERS";
+                $result = $mysqli->query($query);
+                break;
+              case 2:
+                $query = "SELECT * FROM USERS WHERE organisation='$org' AND NOT `management level`='1'";
+                $result = $mysqli->query($query);
+                break;
+              case 3:
+                $query = "SELECT * FROM USERS WHERE organisation ='$org' AND org_group='$group' AND NOT (`management level`='1' OR `management level`='2')";
+                $result = $mysqli->query($query);
+                break;
+          }
         ?>
         <title>Exertime | Users</title>
     </head>
