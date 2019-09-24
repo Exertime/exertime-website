@@ -1,75 +1,79 @@
 <?php
+    // Connect to database
     include("../../../db_conn.php");
 
-
+    // ADD ORGANISATION
     if (isset($_POST['addOrg'])) {
-        $shortName = $_POST['shortName'];
+        // Get form data
+        $shortName = $_POST['name'];
         $name = $_POST['name'];
-        $cdnDur = $_POST['cdnDur'];
-        $walkDelay = $_POST['walkDelay'];
 
-        $query = "INSERT INTO ORGANISATIONS (`Short name`, `Name`, `Countdown Duration`, `Walking Ex Delay`)
-            VALUES ('$shortName','$name','$cdnDur','$walkDelay')";
+        // Query database
+        $query = "INSERT INTO ORGANISATIONS (`Short name`, `Name`)
+            VALUES ('$shortName','$name')";
         $mysqli->query($query);
-        $mysqli->close();
 
+        // Return to previous page
         header('Location: ../../organisations.php');
     }
 
+    // ADD GROUP
     if (isset($_POST['addGrp'])) {
+        // Get form data
         $org = $_POST['org'];
         $grpName = $_POST['grpName'];
-        $grpShrtName = $_POST['grpShrtName'];
+        $grpShrtName = $_POST['grpName'];
         $runEvery = $_POST['runEvery'];
         $usrEvery = $_POST['usrEvery'];
         $postponeInt = $_POST['postponeInt'];
-        $walkExer = $_POST['walkExer'];
-        $walkExerDelay = $_POST['walkExerDelay'];
-        $walkExerPrmpt = $_POST['walkExerPrmpt'];
-        $notifDiag = $_POST['notifDiag'];
+       
         if ($_POST['emergExt'] == "Yes") {$emergExt = 1;} else {$emergExt = 0;}
 
-        $query = "INSERT INTO ORG_GROUP (`Organisation`, `Group_Name`, `Group_Short_Name`, `Run Exertime Every`, `Must Be Completed Every`, `Default Postpone Interval`, `Walking Exercise`, `Walking Ex Delay`, `Walking Exercise Prompt`, `Notification Dialog Prompt`, `Emergency Exit`)
-            VALUES ('$org','$grpName','$grpShrtName','$runEvery','$usrEvery','$postponeInt','$walkExer','$walkExerDelay','$walkExerPrmpt','$notifDiag','$emergExt')";
+        // Query database
+        $query = "INSERT INTO ORG_GROUP (`Organisation`, `Group_Name`, `Group_Short_Name`, `Run Exertime Every`, `Must Be Completed Every`, `Default Postpone Interval`, `Emergency Exit`)
+            VALUES ('$org','$grpName','$grpShrtName','$runEvery','$usrEvery','$postponeInt','$emergExt')";
         $mysqli->query($query);
-        $mysqli->close();
 
+        // Return to previous page
         header('Location: ../../groups.php');
     }
 
+    // ADD EXERCISE
     if (isset($_POST['addExer'])) {
+        // Get form data
         $cpt = $_POST['cpt'];
         $type = $_POST['type'];
         if ($_POST['status'] == "Active") {$status = 1;} else {$status = 0;}
         $kjCo = $_POST['kjCo'];
         $calcType = $_POST['calcType'];
-        $img = $cpt.".png";
-        $vid = $cpt.".mp4";
 
-        $query = "INSERT INTO EXERCISES (`type`, `caption`, `status`, `kj_coefficient`, `calculation type`, `img thumbnail`, `video file`)
-            VALUES ('$type','$cpt','$status','$kjCo','$calcType','$img', '$vid')";
+        // Query database
+        $query = "INSERT INTO EXERCISES (`type`, `caption`, `status`, `kj_coefficient`, `calculation type`)
+            VALUES ('$type','$cpt','$status','$kjCo','$calcType')";
         $mysqli->query($query);
-        $mysqli->close();
 
+        // Return to previous page
         header('Location: ../../exercises.php');
     }
 
+    // ADD REGISTRATION
     if (isset($_POST['addRegist'])) {
-        // $rgtKey = $_POST['rgtKey'];
+        // Get form data
         $rgtKey = generateKey();
         $dept = $_POST['dept'];
         $remain = $_POST['remain'];
 
+        // Query database
         $query = "INSERT INTO REGISTRATION (`Registration_Key`, `Department`, `Remaining`)
             VALUES ('$rgtKey','$dept','$remain')";
-        echo $query;
         $mysqli->query($query);
-        $mysqli->close();
 
+        // Return to previous page
         header('Location: ../../registrations.php');
     }
 
     function generateKey() {
+        // Random key generator
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
         $randomString = '';
 
@@ -101,31 +105,21 @@
         return $randomString;
     }
 
-    if (isset($_POST['saveSettings'])) {
-        $cdnDur = $_POST['cdnDur'];
-        $hintDelay = $_POST['hintDelay'];
-        $delayPrmpt = $_POST['delayPrmpt'];
-        $autoPrmpt = $_POST['autoPrmpt'];
-
-        $query = "UPDATE GLOBAL SET `Countdown Duration`='$cdnDur',`Hint Delay`='$hintDelay',`Delay Before Prompt Exercise`='$delayPrmpt',`Auto Prompt Exercise`='$autoPrmpt' WHERE 1";
-        $mysqli->query($query);
-        $mysqli->close();
-
-        header('Location: ../../global.php?gs=update');
-    }
-
+    // ADD HINT
     if (isset($_POST['addHint'])) {
+        // Get form data
         $dept = $_POST['dept'];
         $hint = $_POST['hint'];
-        $hintOdr = $_POST['hintOdr'];
 
-        $query = "INSERT INTO HINTS (`Department`, `hint`, `Hint Order`)
-            VALUES ('$dept','$hint','$hintOdr')";
+        // Query database
+        $query = "INSERT INTO HINTS (`Department`, `hint`)
+            VALUES ('$dept','$hint')";
         $mysqli->query($query);
-        $mysqli->close();
 
+        // Return to previous page
         header('Location: ../../global.php');
     }
 
-
+    // Close database connection
+    $mysqli->close();
  ?>
