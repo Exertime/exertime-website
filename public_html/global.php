@@ -32,59 +32,6 @@
         <div class="wrapper">
             <?php include("include/header.php"); ?>
             <div class="main-content">
-                <?php
-                    if ($_GET['gs'] == "update") {
-                        echo "
-                            <div class='confirmMsg'>
-                                <h3>Settings Updated</h3>
-                                <p>Your changes have now been saved</p>
-                            </div>
-                        ";
-                    }
-                 ?>
-                <div class="page-title">
-                    <h2>Settings</h2>
-                </div>
-                <form method="post" action="resources/scripts/inserts.php">
-                        <table class="form">
-                            <?php
-                                while($gRow = $globalResult->fetch_array(MYSQLI_ASSOC)) {
-                             ?>
-                            <tr>
-                                <td>Countdown duration</td>
-                                <td><input type="number" name="cdnDur" value="<?php echo $gRow['Countdown Duration'] ?>"/></td>
-                            </tr>
-                            <tr>
-                                <td>Helpful hints delay</td>
-                                <td><input type="number" name="hintDelay" value="<?php echo $gRow['Hint Delay'] ?>"/></td>
-                            </tr>
-                            <tr>
-                                <td>Default exercise delay</td>
-                                <td><input type="number" name="delayPrmpt" value="<?php echo $gRow['Delay Before Prompt Exercise'] ?>"/></td>
-                            </tr>
-                            <tr>
-                                <td>Default exercise</td>
-                                <td>
-                                    <select name="autoPrmpt">
-                                    <?php
-                                        while($eRow = $exercisesResult->fetch_array(MYSQLI_ASSOC)) {
-                                            if ($eRow['caption'] == $gRow['Auto Prompt Exercise']) {
-                                                echo "<option value='" . $eRow['caption'] . "' selected>" . $eRow['caption'] . "</option>";
-                                            } else {
-                                                echo "<option value='" . $eRow['caption'] . "'>" . $eRow['caption'] . "</option>";
-                                            }
-                                        }
-                                     ?>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><input type="Submit" name="saveSettings" value="Save Settings"/></td>
-                            </tr>
-                            <?php } ?>
-                        </table>
-                </form>
                 <div class="page-title">
                     <h2>Helpful Hints</h2>
                 </div>
@@ -97,7 +44,6 @@
                             <tr>
                                 <th>Group</th>
                                 <th>Hint</th>
-                                <th>Hint Order</th>
                                 <th>Commands</th>
                             </tr>
                         </thead>
@@ -106,16 +52,15 @@
                                 echo "<tr>
                                     <td>" . $row['Department'] . "</td>
                                     <td>" . $row['hint'] . "</td>
-                                    <td>" . $row['Hint Order'] . "</td>
                                     <td>
                                         <form action='editHint.php' method='post'>
                                             <input type='hidden' name='id' value=".$row['id'].">
                                             <button type='submit' class='btn-edit' name='edit_GLB'><a class ='btn-icon btn-icon-edit'>Edit</a></button>
                                         </form>
                                         <form action='resources/scripts/delete.php' method='post'>
-                                        <input type='hidden' name='id' value=".$row['id'].">
+                                            <input type='hidden' name='id' value=".$row['id'].">
                                             <button type='submit' class='btn-del' name='delete_GLB'><a class ='btn-icon btn-icon-del'>Delete</a></button>
-                                            </form>
+                                        </form>
                                     </td>
                                 </tr>";
                             }
@@ -124,7 +69,6 @@
                             <tr>
                              <th>Group</th>
                                 <th>Hint</th>
-                                <th>Hint Order</th>
                                 <th>Commands</th>
                             </tr>
                         </tfoot>
@@ -156,12 +100,6 @@
                                 <td>Hint</td>
                                 <td>
                                     <input type="text" name="hint" value="">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Hint Order</td>
-                                <td>
-                                    <input type="number" step="1" name="hintOdr" value="">
                                 </td>
                             </tr>
                             <tr>

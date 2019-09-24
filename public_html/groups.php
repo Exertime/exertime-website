@@ -58,7 +58,6 @@
                         <thead>
                             <tr>
                                 <th>Group Name</th>
-                                <th>Group Short Name</th>
                                 <th>Organisation</th>
                                 <th>Commands</th>
                             </tr>
@@ -67,7 +66,6 @@
                             while($row = $grpResult->fetch_array(MYSQLI_ASSOC)) {
                                 echo "<tr>
                                     <td>" . $row['Group_Name'] . "</td>
-                                    <td>" . $row['Group_Short_Name'] . "</td>
                                     <td>" . $row['Organisation'] . "</td>
                                     <td>
                                         <form action='editGroup.php' method='post'>
@@ -85,7 +83,6 @@
                         <tfoot>
                             <tr>
                                 <th>Group Name</th>
-                                <th>Group Short Name</th>
                                 <th>Organisation</th>
                                 <th>Commands</th>
                             </tr>
@@ -105,12 +102,6 @@
                                 <td>Group Name</td>
                                 <td>
                                     <input type="text" name="grpName"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Group Short Name</td>
-                                <td>
-                                    <input type="text" name="grpShrtName"/>
                                 </td>
                             </tr>
                             <tr>
@@ -136,44 +127,6 @@
                                 <td>Compulsory completion every</td>
                                 <td>
                                     <input type="number" step="1" name="usrEvery" value="">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Default postpone interval</td>
-                                <td>
-                                    <input type="number" step="1" name="postponeInt" value="">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Default exercise</td>
-                                <td>
-                                    <select name="walkExer">
-                                        <option value="">None</option>
-                                        <?php
-                                            while($row = $exerResult->fetch_array(MYSQLI_ASSOC)) {
-                                                echo "<option value='" . $row['caption'] . "'>" . $row['caption'] . "</option>";
-                                            }
-
-                                        ?>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Default exercise Delay</td>
-                                <td>
-                                    <input type="number" step="1" name="walkExerDelay" value="">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Default exercise prompt</td>
-                                <td>
-                                    <textarea name="walkExerPrmpt"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Notification prompt</td>
-                                <td>
-                                    <textarea name="notifDiag"></textarea>
                                 </td>
                             </tr>
                             <tr>

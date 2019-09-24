@@ -45,7 +45,6 @@
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Short Name</th>
                                 <th>Commands</th>
                             </tr>
                         </thead>
@@ -53,7 +52,6 @@
                             while($row = $result->fetch_array(MYSQLI_ASSOC)) {
                                 echo "<tr>
                                     <td>" . $row['Name'] . "</td>
-                                    <td>" . $row['Short name'] . "</td>
                                     <td>
                                         <form action='editOrg.php' method='post'>
                                             <input type='hidden' name='id' value=".$row['id'].">
@@ -70,7 +68,6 @@
                          <tfoot>
                             <tr>
                                 <th>Name</th>
-                                <th>Short Name</th>
                                 <th>Commands</th>
                             </tr>
                         </tfoot>
@@ -89,24 +86,6 @@
                                 <td>Name</td>
                                 <td>
                                     <input type="text" name="name"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Short name</td>
-                                <td>
-                                    <input type="text" name="shortName"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Countdown duration</td>
-                                <td>
-                                    <input type="number" step="0.01" name="cdnDur" value="">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Default exercise delay</td>
-                                <td>
-                                    <input type="number" step="0.01" name="walkDelay" value="">
                                 </td>
                             </tr>
                             <tr>

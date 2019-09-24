@@ -45,12 +45,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Hint Order</td>
-                        <td>
-                            <input type='number' step='1' name='hintOdr' value='".$row['Hint Order']."'>
-                        </td>
-                    </tr>
-                    <tr>
                         <td></td>
                         <td>
                             <input type='Submit' name='editHint' value='Update'/>

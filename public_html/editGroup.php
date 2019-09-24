@@ -30,12 +30,6 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Group Short Name</td>
-                                <td>
-                                    <input type='text' name='grpShrtName' value='".$row['Group_Short_Name']."'>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td>Organisation</td>
                                 <td>
                                     <select name='org'>";
@@ -59,43 +53,6 @@
                                 <td>Compulsory completion every</td>
                                 <td>
                                     <input type='number' step='1' name='usrEvery' value=".$row['Must Be Completed Every'].">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Default postpone interval</td>
-                                <td>
-                                    <input type='number' step='1' name='postponeInt' value=".$row['Default Postpone Interval'].">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Default exercise</td>
-                                <td>
-                                    <select name='walkExer'>
-                                        <option value=''>None</option>";
-
-                                        while($exerRow = $exerResult->fetch_array(MYSQLI_ASSOC)) {
-                                            echo "<option value='" . $exerRow['caption'] . "'>" . $exerRow['caption'] . "</option>";
-                                        }
-
-                                    echo "</select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Default exercise delay</td>
-                                <td>
-                                    <input type='number' step='1' name='walkExerDelay' value=".$row['Walking Ex Delay'].">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Default exercise prompt</td>
-                                <td>
-                                    <textarea name='walkExerPrmpt'>".$row['Walking Exercise Prompt']."</textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Notification prompt</td>
-                                <td>
-                                    <textarea name='notifDiag'>".$row['Notification Dialog Prompt']."</textarea>
                                 </td>
                             </tr>
                             <tr>

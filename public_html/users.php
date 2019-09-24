@@ -55,8 +55,6 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Group</th>
-                                <th>Status</th>
-                                <th>New User</th>
                                 <th>Commands</th>
                             </tr>
                         </thead>
@@ -82,8 +80,6 @@
                                     <td>" . $row['username'] . "</td>
                                     <td>" . $row['email'] . "</td>
                                     <td>" . $row['org_group'] . "</td>
-                                    <td>" . $row['status'] . "</td>
-                                    <td>" . $row['new user'] . "</td>
                                     <td>
                                     <form action='editUser.php' method='post'>
                                       <input type='hidden' name='id' value=".$row['id'].">
@@ -106,8 +102,6 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Group</th>
-                                <th>Status</th>
-                                <th>New User</th>
                                 <th>Commands</th>
                             </tr>
                         </tfoot>
@@ -171,15 +165,6 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Status</td>
-                                <td>
-                                    <select>
-                                        <option value="active">Active</option>
-                                        <option value="inactive">Inactive</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td>DOB</td>
                                 <td>
                                     <input type="date" name="" value="">
@@ -207,12 +192,6 @@
                                 <td>Calorie Goal</td>
                                 <td>
                                     <input type="number" step="1" name="" value="">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>New User</td>
-                                <td>
-                                    <input type="checkbox" name="" value="">
                                 </td>
                             </tr>
                             <tr>

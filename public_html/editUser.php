@@ -76,21 +76,6 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Status</td>
-                                        <td>
-                                            <select name='status'>
-                                                <option value='active'>Active</option>
-                                                <option value='inactive'>Inactive</option>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>New User</td>
-                                        <td>
-                                            <input type='checkbox' name='new user' value='true'>
-                                        </td>
-                                    </tr>
-                                    <tr>
                                         <td>Gender</td>
                                         <td>
                                             <input type='text' name='gender' value='".$row['gender']."'>
