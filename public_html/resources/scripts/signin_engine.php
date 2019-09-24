@@ -1,12 +1,16 @@
 <?php
     //include the file session.php
     include("session.php");
+
     //include the file db_conn.php
     include("../../../db_conn.php");
+
     //receive the username data from the form (in signin_form.php)
     $user=$_POST['username'];
+
     //receive the password data from the form (in signin_form.php)
     $password=$_POST['password'];
+
     //query to check whether username is in the table (check whether the user has been signed up)
     $query = "SELECT * FROM USERS WHERE username='$user'";
 
@@ -31,6 +35,7 @@
             $_SESSION['access'] = $row['management level'];
             $_SESSION['organisation'] = $row['organisation'];
             $_SESSION['group'] = $row['org_group'];
+            
     		//automatically go to signin_success.php
     		header('Location: ../../home.php');
 

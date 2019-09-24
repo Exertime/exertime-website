@@ -166,6 +166,7 @@
         $dept = $_POST['dept'];
         $remain = $_POST['remain'];
 
+        // Query database
         $query = "UPDATE REGISTRATION 
             SET `Department`='$dept', `Remaining`='$remain' 
             WHERE id='$id'";
@@ -182,6 +183,7 @@
         $dept = $_POST['dept'];
         $hint = $_POST['hint'];
 
+        // Query database
         $query = "UPDATE HINTS 
             SET `Department`='$dept', `hint`='$hint'
             WHERE `id`='$id'";
