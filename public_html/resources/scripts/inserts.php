@@ -1,4 +1,7 @@
 <?php
+    // error_reporting(E_ALL);
+    // ini_set('display_errors', 1);
+
     // Connect to database
     include("../../../db_conn.php");
 

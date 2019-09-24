@@ -2,48 +2,50 @@
     // error_reporting(E_ALL);
     // ini_set('display_errors', 1);
 
+    // Connect to database
     include("../../../db_conn.php");
 
+    // EDIT ORGANISATION
     if(isset($_POST['editOrg'])){
+        // Get form data
         $id = $_POST['id'];
-        $shortName = $_POST['shortName'];
         $name = $_POST['name'];
-        $cdnDur = $_POST['cdnDur'];
-        $walkDelay = $_POST['walkDelay'];
 
-        $query = "UPDATE ORGANISATIONS SET `Short name`='$shortName', `Name`='$name', `Countdown Duration`='$cdnDur', `Walking Ex Delay`='$walkDelay' WHERE id='$id'";
+        // Query database
+        $query = "UPDATE ORGANISATIONS 
+            SET `Name`='$name'
+            WHERE id='$id'";
         $mysqli->query($query);
-        $mysqli->close();
-
+        
+        // Return to previous page
         header("Location: ../../organisations.php");
     }
 
+    // EDIT GROUP
     if (isset($_POST['editGrp'])) {
+        // Get form data
         $id = $_POST['id'];
         $org = $_POST['org'];
         $grpName = $_POST['grpName'];
-        $grpShrtName = $_POST['grpShrtName'];
         $runEvery = $_POST['runEvery'];
         $usrEvery = $_POST['usrEvery'];
         $postponeInt = $_POST['postponeInt'];
-        $walkExer = $_POST['walkExer'];
-        $walkExerDelay = $_POST['walkExerDelay'];
-        $walkExerPrmpt = $_POST['walkExerPrmpt'];
-        $notifDiag = $_POST['notifDiag'];
         if ($_POST['emergExt'] == "Yes") {$emergExt = 1;} else { $emergExt = 0; }
 
-        $query = "UPDATE ORG_GROUP SET `Organisation`='$org', `Group_Name`='$grpName', `Group_Short_Name`='$grpShrtName', `Run Exertime Every`='$runEvery', `Must Be Completed Every`='$userEvery',
-                  `Default Postpone Interval`='$postponeInt', `Walking Exercise`='$walkExer', `Walking Ex Delay`='$walkExerDelay', `Walking Exercise Prompt`='$walkExerPrmpt', `Notification Dialog Prompt`='$notifDiag',
-                  `Emergency Exit`='$emergExt' WHERE `id`='$id'";
+        // Query database
+        $query = "UPDATE ORG_GROUP 
+            SET `Organisation`='$org', `Group_Name`='$grpName', `Run Exertime Every`='$runEvery', `Must Be Completed Every`='$userEvery', `Default Postpone Interval`='$postponeInt', `Emergency Exit`='$emergExt' 
+            WHERE `id`='$id'";
         $mysqli->query($query);
-        $mysqli->close();
 
+        // Return to previous page
         header('Location: ../../groups.php');
     }
 
+    // EDIT USER
     if(isset($_POST['editUser'])){
+        // Get form data
         $id = $_POST['id'];
-
         $department = $_POST['department'];
         $gname = $_POST['given_name'];
         $surname = $_POST['surname'];
@@ -51,59 +53,37 @@
         $username = $_POST['username'];
         $email = $_POST['email'];
         $exit = $_POST['exit'];
-        $status = $_POST['status'];
+        if($exit == "yes"){ $exit = 1; } else{ $exit = 0; }
         $dob = $_POST['dob'];
         $gender = $_POST['gender'];
         $height = $_POST['height'];
         $title = $_POST['job title'];
         $goal = $_POST['goal'];
-        $newUser = $_POST['new_user'];
         $role = $_POST['role'];
+        if($role == "dep"){ $role = 1; } else{ $role = 2; }
 
-        if($exit == "yes"){
-          $exit = 1;
-        } else{
-          $exit = 0;
-        }
-
-        if($status == "active"){
-          $status = 1;
-        } else {
-          $status = 0;
-        }
-
-        if($newUser == "true"){
-          $newUser = 1;
-        }else{
-          $newUser = 0;
-        }
-
-        if($role == "dep"){
-          $role = 1;
-        }else{
-          $role = 2;
-        }
-
-        $query = "UPDATE `USERS` SET `username`='$username',`given name`='$gname',`surname`='$surname',
-                  `prefered name`='$pname',`email`='$email',`emergency exit`='$exit',`status`='$status',
-                  `DOB`='$dob',`gender`='$gender',`job title`='$title',`calorie goal`='$goal',
-                  `new user`='$newUser',`management level`='$role',`org_group`='$department' WHERE `id`='$id'";
+        // Query database
+        $query = "UPDATE `USERS` 
+            SET `username`='$username',`given name`='$gname',`surname`='$surname', `prefered name`='$pname',`email`='$email',`emergency exit`='$exit', `DOB`='$dob',`gender`='$gender',`job title`='$title',`calorie goal`='$goal',`management level`='$role',`org_group`='$department' 
+            WHERE `id`='$id'";
         $mysqli->query($query);
-        $mysqli->close();
 
+        // Return to previous page
         header("Location: ../../users.php");
-
     }
 
+    // EDIT EXERCISE
     if (isset($_POST['editExer'])) {
+        // Get form data
         $id = $_POST['id'];
         $type = $_POST['type'];
         $cpt = $_POST['cpt'];
-        if ($_POST['status'] == "Active") {$status = 1;} else {$status = 0;}
+        if ($_POST['status'] == "Active") { $status = 1; } else { $status = 0; }
         $kjCo = $_POST['kjCo'];
         $calcType = $_POST['calcType'];
 
-        // Image Upload
+        // IMAGE UPLOAD
+        // Get image data
         $img = $_FILES['thumbnail'];
         $imgName = $_FILES['thumbnail']['name'];
         $imgTmpName = $_FILES['thumbnail']['tmp_name'];
@@ -111,10 +91,12 @@
         $imgError = $_FILES['thumbnail']['tmp_error'];
         $imgType = $_FILES['thumbnail']['tmp_type'];
 
+        // Set image name
         $imgExt = explode('.', $imgName);
         $imgActualExt = strtolower(end($imgExt));
         $imgNameNew = $cpt.".".$imgActualExt;
 
+        // Error check and upload image
         $allowed = array('jpg', 'jpeg', 'png');
         if(in_array($imgActualExt, $allowed)) {
           if($imgError == 0) {
@@ -133,7 +115,8 @@
           echo("You can't upload images of this type!");
         }
 
-        // Video Upload
+        // VIDEO UPLOAD
+        // Get video data
         $vid = $_FILES['video'];
         $vidName = $_FILES['video']['name'];
         $vidName = $_FILES['video']['name'];
@@ -142,10 +125,12 @@
         $vidError = $_FILES['video']['tmp_error'];
         $vidType = $_FILES['video']['tmp_type'];
 
+        // Set video name 
         $vidExt = explode('.', $vidName);
         $vidActualExt = strtolower(end($vidExt));
         $vidNameNew = $cpt.".".$vidActualExt;
 
+        // Error check and video image
         $allowed = array('mp4');
         if(in_array($vidActualExt, $allowed)) {
           if($vidError == 0) {
@@ -164,36 +149,48 @@
           echo("You can't upload videos of this type!");
         }
       
-        $query = "UPDATE EXERCISES SET `type`='$type', `caption`='$cpt', `status`='$status', `kj_coefficient`='$kjCo', `calculation type`='$calcType', `img thumbnail`='$imgNameNew', `video file`='$vidNameNew'
-                  WHERE `id`='$id'";
+        // Query database
+        $query = "UPDATE EXERCISES 
+            SET `type`='$type', `caption`='$cpt', `status`='$status', `kj_coefficient`='$kjCo', `calculation type`='$calcType', `img thumbnail`='$imgNameNew', `video file`='$vidNameNew'
+            WHERE `id`='$id'";
         $mysqli->query($query);
-        $mysqli->close();
 
+        // Return to previous page
         header('Location: ../../exercises.php');
     }
 
+    // EDIT REGISTRATION
     if (isset($_POST['editRegist'])) {
+        // Get form data
         $id = $_POST['id'];
         $dept = $_POST['dept'];
         $remain = $_POST['remain'];
 
-        $query = "UPDATE REGISTRATION SET `Department`='$dept', `Remaining`='$remain' WHERE id='$id'";
+        $query = "UPDATE REGISTRATION 
+            SET `Department`='$dept', `Remaining`='$remain' 
+            WHERE id='$id'";
         $mysqli->query($query);
-        $mysqli->close();
 
+        // Return to previous page
         header('Location: ../../registrations.php');
     }
 
+    // EDIT HINT
     if (isset($_POST['editHint'])) {
+        // Get form data
         $id = $_POST['id'];
         $dept = $_POST['dept'];
         $hint = $_POST['hint'];
-        $hintOdr = $_POST['hintOdr'];
 
-        $query = "UPDATE HINTS SET `Department`='$dept', `hint`='$hint', `Hint Order`='$hintOdr' WHERE `id`='$id'";
+        $query = "UPDATE HINTS 
+            SET `Department`='$dept', `hint`='$hint'
+            WHERE `id`='$id'";
         $mysqli->query($query);
-        $mysqli->close();
 
+        // Return to previous page
         header('Location: ../../global.php');
     }
+
+    // Close database connection
+    $mysqli->close();
 ?>
