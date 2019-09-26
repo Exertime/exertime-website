@@ -12,11 +12,11 @@
         $name = $_POST['name'];
 
         // Query database
-        $query = "UPDATE ORGANISATIONS 
+        $query = "UPDATE ORGANISATIONS
             SET `Name`='$name'
             WHERE id='$id'";
         $mysqli->query($query);
-        
+
         // Return to previous page
         header("Location: ../../organisations.php");
     }
@@ -33,8 +33,8 @@
         if ($_POST['emergExt'] == "Yes") {$emergExt = 1;} else { $emergExt = 0; }
 
         // Query database
-        $query = "UPDATE ORG_GROUP 
-            SET `Organisation`='$org', `Group_Name`='$grpName', `Run Exertime Every`='$runEvery', `Must Be Completed Every`='$userEvery', `Default Postpone Interval`='$postponeInt', `Emergency Exit`='$emergExt' 
+        $query = "UPDATE ORG_GROUP
+            SET `Organisation`='$org', `Group_Name`='$grpName', `Run Exertime Every`='$runEvery', `Must Be Completed Every`='$userEvery', `Default Postpone Interval`='$postponeInt', `Emergency Exit`='$emergExt'
             WHERE `id`='$id'";
         $mysqli->query($query);
 
@@ -60,11 +60,10 @@
         $title = $_POST['job title'];
         $goal = $_POST['goal'];
         $role = $_POST['role'];
-        if($role == "dep"){ $role = 1; } else{ $role = 2; }
 
         // Query database
-        $query = "UPDATE `USERS` 
-            SET `username`='$username',`given name`='$gname',`surname`='$surname', `prefered name`='$pname',`email`='$email',`emergency exit`='$exit', `DOB`='$dob',`gender`='$gender',`job title`='$title',`calorie goal`='$goal',`management level`='$role',`org_group`='$department' 
+        $query = "UPDATE `USERS`
+            SET `username`='$username',`given name`='$gname',`surname`='$surname', `prefered name`='$pname',`email`='$email',`emergency exit`='$exit', `DOB`='$dob',`gender`='$gender', `height`='$height',`job title`='$title',`calorie goal`='$goal',`management level`='$role',`org_group`='$department'
             WHERE `id`='$id'";
         $mysqli->query($query);
 
@@ -125,7 +124,7 @@
         $vidError = $_FILES['video']['tmp_error'];
         $vidType = $_FILES['video']['tmp_type'];
 
-        // Set video name 
+        // Set video name
         $vidExt = explode('.', $vidName);
         $vidActualExt = strtolower(end($vidExt));
         $vidNameNew = $cpt.".".$vidActualExt;
@@ -148,9 +147,9 @@
         } else {
           echo("You can't upload videos of this type!");
         }
-      
+
         // Query database
-        $query = "UPDATE EXERCISES 
+        $query = "UPDATE EXERCISES
             SET `type`='$type', `caption`='$cpt', `status`='$status', `kj_coefficient`='$kjCo', `calculation type`='$calcType', `img thumbnail`='$imgNameNew', `video file`='$vidNameNew'
             WHERE `id`='$id'";
         $mysqli->query($query);
@@ -166,9 +165,8 @@
         $dept = $_POST['dept'];
         $remain = $_POST['remain'];
 
-        // Query database
-        $query = "UPDATE REGISTRATION 
-            SET `Department`='$dept', `Remaining`='$remain' 
+        $query = "UPDATE REGISTRATION
+            SET `Department`='$dept', `Remaining`='$remain'
             WHERE id='$id'";
         $mysqli->query($query);
 
@@ -183,8 +181,7 @@
         $dept = $_POST['dept'];
         $hint = $_POST['hint'];
 
-        // Query database
-        $query = "UPDATE HINTS 
+        $query = "UPDATE HINTS
             SET `Department`='$dept', `hint`='$hint'
             WHERE `id`='$id'";
         $mysqli->query($query);

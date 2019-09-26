@@ -4,9 +4,9 @@
         <?php
             $title = "Home";
             include("include/head.php");
-        
+
                 include("resources/scripts/session.php");
-        
+
            if(isset($_SESSION['access'])){}else{
                 $fromurl="index.php";
                 if( $_SERVER['HTTP_REFERER'] == "" )
@@ -27,14 +27,30 @@
                 <div class="page-content">
                     <h3>From this portal you can configure various functions of the Exertime clients such as:</h3>
                     <ul>
-                        <li>Create new or edit existing organisations</li>
-                        <li>Create new or edit existing departments</li>
-                        <li>Edit calorie goals and Exertime runtime variables per department</li>
-                        <li>View user activity</li>
-                        <li>Update Exertime user weights</li>
-                        <li>Manage which exercises department have access too or disable exercises for all departments.</li>
-                        <li>Adjust coefficients per exercises</li>
-                        <li>Run Exertime reports</li>
+                    <?php
+                      switch($_SESSION['access']){
+                        case 1:
+                          echo "<li>Create new or edit existing organisations</li>
+                          <li>Create new or edit existing groups</li>
+                          <li>Edit calorie goals and Exertime runtime variables per user, group or organisation</li>
+                          <li>View and edit Exertime settings per user or by group or organisation</li>
+                          <li>Edit user settings</li>
+                          <li>Manage which exercises department have access too or disable exercises for all departments.</li>
+                          <li>Adjust coefficients per exercises</li>";
+                          break;
+                        case 2:
+                          echo "<li>Edit existing organisations</li>
+                          <li>Create new or edit existing groups</li>
+                          <li>View and edit Exertime settings per user or by group or organisation</li>
+                          <li>View user settings</li>";
+                          break;
+                        case 3:
+                          echo "<li>Edit existing groups</li>
+                          <li>View and edit Exertime settings per user or by group</li>
+                          <li>View user settings</li>";
+                          break;
+						  }
+                    ?>
                     </ul>
                 </div>
             </div>

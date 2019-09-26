@@ -50,8 +50,15 @@
                 <div class="page-title">
                     <h2>Groups</h2>
                 </div>
-                <button class='btn-add' type='button' name='btn-add' onclick='showModalAdd(this)'>
-                    <a class='btn-icon btn-icon-add'>New Group</a>
+				<?php
+                if($_SESSION['access'] == 3) {
+					echo "<button class='btn-add' type='button' name='btn-add' onclick='showModalAdd(this)' hidden>
+                    <a class='btn-icon btn-icon-add'>New Group</a>";
+				} else {
+					echo "<button class='btn-add' type='button' name='btn-add' onclick='showModalAdd(this)'>
+                    <a class='btn-icon btn-icon-add'>New Group</a>";
+				}
+				?>
                 </button>
                 <div class="table_wrapper">
                     <table id="datatable" class="display compact hover">
@@ -127,6 +134,12 @@
                                 <td>Compulsory completion every</td>
                                 <td>
                                     <input type="number" step="1" name="usrEvery" value="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Postpone Interval</td>
+                                <td>
+                                    <input type="number" step="1" name="postponeInt" value="">
                                 </td>
                             </tr>
                             <tr>

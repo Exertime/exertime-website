@@ -37,8 +37,15 @@
                 <div class="page-title">
                     <h2>Organisations</h2>
                 </div>
-                <button class='btn-add' type='button' name='btn-add' onclick='showModalAdd(this)'>
-                    <a class='btn-icon btn-icon-add'>New Organisation</a>
+                <?php
+                if($_SESSION['access'] == 1) {
+                  echo "<button class='btn-add' type='button' name='btn-add' onclick='showModalAdd(this)'>
+                    <a class='btn-icon btn-icon-add'>New Organisation</a>";
+                } else {
+                  echo "<button class='btn-add' type='button' name='btn-add' onclick='showModalAdd(this)' hidden>
+                    <a class='btn-icon btn-icon-add'>New Organisation</a>";
+                }
+                ?>
                 </button>
                 <div class="table_wrapper">
                     <table id="datatable" class="display compact hover">

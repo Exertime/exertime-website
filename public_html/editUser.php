@@ -26,15 +26,29 @@
                                 <table class='form'>
                                     <tr>
                                         <td>Given Names</td>
-                                        <td>
-                                            <input type='text' name='given name' value='".$row['given name']."'>
-                                        </td>
+                                        <td>";
+										if($_SESSION['access'] == 1 || $_SESSION['access'] == 2)
+										{
+											echo "<input type='text' name='given name' value='".$row['given name']."'>";
+										}
+										else
+										{
+											echo "<input type='text' name='given name' value='".$row['given name']."' disabled>";
+										}
+                                        echo "</td>
                                     </tr>
                                     <tr>
                                         <td>Surname</td>
-                                        <td>
-                                            <input type='text' name='surname' value='".$row['surname']."'>
-                                        </td>
+										<td>";
+                                        if($_SESSION['access'] == 1 || $_SESSION['access'] == 2)
+										{
+											echo "<input type='text' name='surname' value='".$row['surname']."'>";
+										}
+										else
+										{
+											echo "<input type='text' name='surname' value='".$row['surname']."' disabled>";
+										}
+                                        echo "</td>
                                     </tr>
                                     <tr>
                                         <td>Prefered name</td>
@@ -44,66 +58,98 @@
                                     </tr>
                                     <tr>
                                         <td>Username</td>
-                                        <td>
-                                            <input type='text' name='username' value='".$row['username']."'>
-                                        </td>
+                                        <td>";
+										if($_SESSION['access'] == 1)
+										{
+											echo "<input type='text' name='username' value='".$row['username']."'>";
+										}
+										else
+										{
+											echo "<input type='text' name='username' value='".$row['username']."' disabled>";
+										}
+                                        echo "</td>
                                     </tr>
                                     <tr>
                                         <td>Email</td>
-                                        <td>
-                                            <input type='email' name='email' value='".$row['email']."'>
-                                        </td>
+                                        <td>";
+										if($_SESSION['access'] == 1 || $_SESSION['access'] == 2){
+                                            echo "<input type='email' name='email' value='".$row['email']."'>";
+										} else {
+											echo "<input type='email' name='email' value='".$row['email']."' disabled>";
+										}
+                                        echo "</td>
                                     </tr>
                                     <tr>
                                         <td>Group</td>
-                                        <td>
-                                            <select name='department'>
-                                                <option value='None'>None</option>";
+                                        <td>";
+												if($_SESSION['access'] == 1 || $_SESSION['access'] == 2){
+													echo "<select name='department'>
+													<option value='None'>None</option>";
 
-                                                while($grpRow = $grpResult->fetch_array(MYSQLI_ASSOC)) {
-                                                    echo "<option value='" . $grpRow['Group_Short_Name'] . "'";
-                                                    if($row['org_group'] == $grpRow['Group_Short_Name']) {echo " selected";}
-                                                    echo ">" . $grpRow['Group_Short_Name'] . "</option>";
-                                                }
+													while($grpRow = $grpResult->fetch_array(MYSQLI_ASSOC)) {
+														echo "<option value='" . $grpRow['Group_Short_Name'] . "'";
+														if($row['org_group'] == $grpRow['Group_Short_Name']) {echo " selected";}
+														echo ">" . $grpRow['Group_Short_Name'] . "</option>";
+													}
+												} else {
+													echo "<input type='text' value='" .$row['Group_Short_Name']."' disabled>".$_row['Group_Short_Name']."</option>";
+												}
 
                                             echo "</select>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Job Title</td>
-                                        <td>
-                                            <input type='text' name='job title' value='".$row['job title']."'>
-                                        </td>
+                                        <td>";
+											if($_SESSION['access'] == 1 || $_SESSION['access'] == 2)
+											{
+												echo "<input type='text' name='job title' value='".$row['job title']."'>";
+											} else {
+												echo "<input type='text' name='job title' value='".$row['job title']."' disabled>";
+											}
+                                        echo "</td>
                                     </tr>
                                     <tr>
                                         <td>Gender</td>
                                         <td>
-                                            <input type='text' name='gender' value='".$row['gender']."'>
+                                            <input type='text' name='gender' value='".$row['gender']."' disabled>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>DOB</td>
-                                        <td>
-                                            <input type='date' name='dob' value=".$row['DOB'].">
-                                        </td>
+                                        <td>";
+										if($_SESSION['access'] == 1) {
+                                            echo "<input type='date' name='dob' value='".$row['DOB']."' >";
+										} /*else {
+}											echo "<input type='date' name='dob' value='".$row['DOB']."' >";
+										}*/
+                                        echo "</td>
                                     </tr>
                                     <tr>
                                         <td>Height</td>
-                                        <td>
-                                            <input type='number' step='0.01' name='height' value=''>
-                                        </td>
+                                        <td>";
+										if($_SESSION['access'] == 1){
+                                            echo "<input type='number' step='0.01' name='height' value='".$row['height']."'>";
+										} else {
+											echo "<input type='number' step='0.01' name='height' value='".$row['height']."' disabled>";
+										}
+                                        echo "</td>
                                     </tr>
                                     <tr>
                                         <td>Calorie Goal</td>
-                                        <td>
-                                            <input type='number' step='1' name='goal' value='".$row['calorie goal']."'>
-                                        </td>
+                                        <td>";
+										if($_SESSION['access'] == 1){
+                                            echo "<input type='number' step='1' name='goal' value='".$row['calorie goal']."'>";
+                                        } else {
+											echo "<input type='text' name='goal' value='".$row['calorie goal']."' disabled>";
+										}
+										echo "</td>
                                     </tr>
                                     <tr>
                                         <td>Emergency Exit</td>
                                         <td>
                                             <select name='exit'>
-                                                <option value='department'>Department</option>
+                                                <option value='department'>Group</option>
                                                 <option value='yes'>Yes</option>
                                                 <option value='no'>No</option>
                                             </select>
@@ -116,22 +162,48 @@
                                         switch ($_SESSION['access'])
                                         {
                                           case 1:
-                                            echo "<option value='4'>Standard User</option>
-                                            <option value='3'>Group Manager</option>
-                                            <option value='2'>Manager</option>
-                                            <option value='1'>Super User</option>";
+                                            echo "<option value='4'";
+												if($row['management level'] == 4){
+												echo "selected";}
+											echo ">Standard User</option>
+                                            <option value='3'";
+												if($row['management level'] == 3){
+												echo "selected";}
+											echo ">Group Manager</option>
+                                            <option value='2'";
+												if($row['management level'] == 2){
+												echo "selected";}
+											echo ">Manager</option>
+                                            <option value='1'";
+												if($row['management level'] == 1){
+												echo "selected";}
+											echo ">Super User</option>";
                                             break;
                                           case 2:
-                                            echo "<option value='4'>Standard User</option>
-                                            <option value='3'>Group Manager</option>
-                                            <option value='2'>Manager</option>";
+                                            echo "<option value='4'";
+												if($row['management level'] == 4){
+												echo "selected";}
+											echo ">Standard User</option>
+                                            <option value='3'";
+												if($row['management level'] == 3){
+												echo "selected";}
+											echo ">Group Manager</option>
+                                            <option value='2'";
+												if($row['management level'] == 2){
+												echo "selected";}
+											echo ">Manager</option>";
                                             break;
                                           case 3:
-                                            echo "<option value='4'>Standard User</option>
-                                            <option value='3'>Group Manager</option>";
+                                            echo "<option value='4'";
+												if($row['management level'] == 4){
+												echo "selected";}
+											echo ">Standard User</option>
+                                            <option value='3'";
+												if($row['management level'] == 3){
+												echo "selected";}
+											echo ">Group Manager</option>";
                                             break;
                                         }
-
                                         echo "</select>
                                         </td>
                                     </tr>
