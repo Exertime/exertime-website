@@ -41,7 +41,7 @@
                     <tr>
                         <td>Hint</td>
                         <td>
-                            <input type='text' name='hint' value='".$row['hint']."'>
+                            <textarea name='hint'>".$row['hint']."</textarea>
                         </td>
                     </tr>
                     <tr>

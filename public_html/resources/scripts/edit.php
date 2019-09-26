@@ -29,7 +29,6 @@
         $grpName = $_POST['grpName'];
         $runEvery = $_POST['runEvery'];
         $usrEvery = $_POST['usrEvery'];
-        $postponeInt = $_POST['postponeInt'];
         if ($_POST['emergExt'] == "Yes") {$emergExt = 1;} else { $emergExt = 0; }
 
         // Query database

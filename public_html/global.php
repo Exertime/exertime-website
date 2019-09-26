@@ -99,7 +99,7 @@
                             <tr>
                                 <td>Hint</td>
                                 <td>
-                                    <input type="text" name="hint" value="">
+                                    <textarea name="hint"></textarea>
                                 </td>
                             </tr>
                             <tr>

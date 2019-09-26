@@ -56,6 +56,12 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>Postpone Interval</td>
+                                <td>
+                                    <input type='number' step='1' name='postponeInt' value=''>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Emergency exit</td>
                                 <td>
                                     <input type='checkbox' name='emergExt' value=''>
