@@ -31,14 +31,18 @@
                             </tr>
                             <tr>
                                 <td>Organisation</td>
-                                <td>
-                                    <select name='org'>";
-                                        
+                                <td>";
+								if($_SESSION['access'] == 1) {
+                                    echo "<select name='org'>";
+
                                         while($orgRow = $orgResult->fetch_array(MYSQLI_ASSOC)) {
                                             echo "<option value='" . $orgRow['Short name'] . "'";
                                             if($row['Organisation'] == $orgRow['Short name']) {echo " selected";}
                                             echo ">" . $orgRow['Short name'] . "</option>";
                                         }
+								} else {
+									echo "<input type='text' name='org' value='".$row['Organisation']."' disabled>";
+								}
 
                                     echo "</select>
                                 </td>

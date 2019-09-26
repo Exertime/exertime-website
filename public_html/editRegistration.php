@@ -53,6 +53,12 @@
                     <input type='number' name='total' value=".$row['Total']." disabled>
                 </td>
             </tr>
+			<tr>
+				<td>Expire</td>
+				<td>
+					<input type='date' name='expire' value='".$row['expire']."'>
+				</td>
+			</tr>
             <tr>
                 <td></td>
                 <td>

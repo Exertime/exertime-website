@@ -16,7 +16,7 @@
                 }
            }
            $org = $_SESSION['organisation'];
-           		   $group = $_SESSION['group'];
+           $group = $_SESSION['group'];
 
            		   switch ($_SESSION['access'])
            		   {
@@ -33,7 +33,7 @@
            				$orgResult = $mysqli->query($query);
            				break;
            			case 3:
-           				$query = "SELECT * FROM ORG_GROUP WHERE `Group_Short_Name` = '$group' AND `Organisation` = '$org'";
+           				$query = "SELECT * FROM ORG_GROUP WHERE `Group_Short_Name`='$group'";
            				$grpResult = $mysqli->query($query);
            				$query = "SELECT `Short name` FROM ORGANISATIONS";
            				$orgResult = $mysqli->query($query);

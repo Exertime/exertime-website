@@ -41,6 +41,7 @@
                                 <th>Remaining</th>
                                 <th>Used</th>
                                 <th>Total</th>
+								<th>Expire</th>
                                 <th>Commands</th>
                             </tr>
                         </thead>
@@ -52,6 +53,7 @@
                                     <td>" . $row['Remaining'] . "</td>
                                     <td>" . $row['Used'] . "</td>
                                     <td>" . ($row['Remaining']+$row['Used']) . "</td>
+									<td>" . $row['expire'] . "</td>
                                     <td>
                                         <form action='editRegistration.php' method='post'>
                                            <input type='hidden' name='id' value=".$row['id'].">
@@ -102,6 +104,12 @@
                             <td>Remaining</td>
                             <td>
                                 <input type="number" step="0.01" name="remain" value="">
+                            </td>
+                        </tr>
+						            <tr>
+                            <td>Expire</td>
+                            <td>
+                                <input type="date" name="expire" value="">
                             </td>
                         </tr>
                         <tr>
