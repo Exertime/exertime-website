@@ -120,9 +120,9 @@
                                         <td>";
 										if($_SESSION['access'] == 1) {
                                             echo "<input type='date' name='dob' value='".$row['DOB']."' >";
-										} /*else {
-}											echo "<input type='date' name='dob' value='".$row['DOB']."' >";
-										}*/
+										} else {
+                                            echo "<input type='date' name='dob' value='".$row['DOB']."' disabled>";
+										}
                                         echo "</td>
                                     </tr>
                                     <tr>
