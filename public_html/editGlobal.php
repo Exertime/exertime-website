@@ -28,13 +28,13 @@
                         <td>
                             <select name='dept'>
                                 <option value='None' selected>None</option>";
-                                
+
                                 while($grpRow = $grpResult->fetch_array(MYSQLI_ASSOC)) {
                                     echo "<option value='" . $grpRow['Group_Short_Name'] . "'";
                                     if($row['Department'] == $grpRow['Group_Short_Name']) { echo " selected"; }
                                     echo ">" . $grpRow['Group_Short_Name'] . "</option>";
                                 }
-                                
+
                             echo "</select>
                         </td>
                     </tr>
@@ -53,7 +53,7 @@
                 </table>
         </form>";
         }
-        ?> 
+        ?>
     </div>
 </div>
 <?php include("include/footer.php"); ?>

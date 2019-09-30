@@ -2,7 +2,7 @@
 <html>
     <head>
         <?php
-            $title = "Hints";
+            $title = "Categories";
             include("include/head.php");
             include("../db_conn.php");
 
@@ -31,33 +31,31 @@
             <?php include("include/header.php"); ?>
             <div class="main-content">
                 <div class="page-title">
-                    <h2>Helpful Hints</h2>
+                    <h2>Exercise Categories</h2>
                 </div>
                 <button class='btn-add' type='button' name='btn-add' onclick='showModalAdd(this)'>
-                    <a class='btn-icon btn-icon-add'>New Hint</a>
+                    <a class='btn-icon btn-icon-add'>Categories</a>
                 </button>
                 <div class="table_wrapper">
                     <table id="datatable" class="display compact hover">
                         <thead>
                             <tr>
-                                <th>Group</th>
-                                <th>Hint</th>
-                                <th>Commands</th>
+                                <th>Category</th>
                             </tr>
                         </thead>
                         <?php
                             while($row = $hintsResult->fetch_array(MYSQLI_ASSOC)) {
                                 echo "<tr>
-                                    <td>" . $row['Department'] . "</td>
-                                    <td>" . $row['hint'] . "</td>
+                                    <td>" . $row['id'] . "</td>
+                                    <td>" . $row['category'] . "</td>
                                     <td>
-                                        <form action='editHint.php' method='post'>
+                                        <form action='editCategory.php' method='post'>
                                             <input type='hidden' name='id' value=".$row['id'].">
-                                            <button type='submit' class='btn-edit' name='edit_GLB'><a class ='btn-icon btn-icon-edit'>Edit</a></button>
+                                            <button type='submit' class='btn-edit' name='edit_CAT'><a class ='btn-icon btn-icon-edit'>Edit</a></button>
                                         </form>
                                         <form action='resources/scripts/delete.php' method='post'>
                                             <input type='hidden' name='id' value=".$row['id'].">
-                                            <button type='submit' class='btn-del' name='delete_GLB'><a class ='btn-icon btn-icon-del'>Delete</a></button>
+                                            <button type='submit' class='btn-del' name='delete_CAT'><a class ='btn-icon btn-icon-del'>Delete</a></button>
                                         </form>
                                     </td>
                                 </tr>";
@@ -65,8 +63,8 @@
                          ?>
                         <tfoot>
                             <tr>
-                             <th>Group</th>
-                                <th>Hint</th>
+                             <th>Categories</th>
+                                <th>Category</th>
                                 <th>Commands</th>
                             </tr>
                         </tfoot>
@@ -82,28 +80,15 @@
                 <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
-                                <td>Group</td>
+                                <td>Category</td>
                                 <td>
-                                    <select name="dept">
-                                        <option value="None">None</option>
-                                        <?php
-                                            while($row = $grpResult->fetch_array(MYSQLI_ASSOC)) {
-                                                echo "<option value='" . $row['Group_Short_Name'] . "'>" . $row['Group_Short_Name'] . "</option>";
-                                            }
-                                        ?>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Hint</td>
-                                <td>
-                                    <textarea name="hint"></textarea>
+                                    <textarea name="category"></textarea>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="Submit" name="addHint" value="Update"/>
+                                    <input type="Submit" name="addCategory" value="Update"/>
                                 </td>
                             </tr>
                         </table>

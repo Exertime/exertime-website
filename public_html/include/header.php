@@ -34,8 +34,11 @@
 					if ($title == 'Registrations') {echo " class=\'current\'";}
 					echo ">Registrations</a></li>
                     <li><a href='global.php'";
-					if ($title == 'Global') {echo ' class=\'current\'';}
-					echo ">Global</a></li>";}
+					if ($title == 'Hints') {echo ' class=\'current\'';}
+					echo ">Hints</a></li>
+                    <li><a href='categories.php'";
+          if ($title == 'Categories') {echo ' class=\'current\'';}
+          echo ">Categories</a></li>";}
 				}
                   else {
                     echo "<li><img src='./resources/img/head_logo.PNG' alt='Logo'></li>";

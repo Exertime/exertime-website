@@ -189,6 +189,21 @@
         header('Location: ../../global.php');
     }
 
+    // EDIT CATEGORY
+    if (isset($_POST['editCategory'])) {
+        // Get form data
+        $id = $_POST['id'];
+        $category = $_POST['category'];
+
+        $query = "UPDATE CATEGORIES
+            SET `category`='$category'
+            WHERE `id`='$id'";
+        $mysqli->query($query);
+
+        // Return to previous page
+        header('Location: ../../categories.php');
+    }
+
     // Close database connection
     $mysqli->close();
 ?>
