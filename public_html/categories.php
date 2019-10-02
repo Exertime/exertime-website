@@ -40,7 +40,9 @@
                     <table id="datatable" class="display compact hover">
                         <thead>
                             <tr>
+                                <th>Categories</th>
                                 <th>Category</th>
+                                <th>Commands</th>
                             </tr>
                         </thead>
                         <?php
@@ -63,7 +65,7 @@
                          ?>
                         <tfoot>
                             <tr>
-                             <th>Categories</th>
+                                <th>Categories</th>
                                 <th>Category</th>
                                 <th>Commands</th>
                             </tr>

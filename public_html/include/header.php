@@ -37,8 +37,8 @@
 					if ($title == 'Hints') {echo ' class=\'current\'';}
 					echo ">Hints</a></li>
                     <li><a href='categories.php'";
-          if ($title == 'Categories') {echo ' class=\'current\'';}
-          echo ">Categories</a></li>";}
+                    if ($title == 'Categories') {echo ' class=\'current\'';}
+                    echo ">Categories</a></li>";}
 				}
                   else {
                     echo "<li><img src='./resources/img/head_logo.PNG' alt='Logo'></li>";
