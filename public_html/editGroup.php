@@ -68,7 +68,12 @@
                             <tr>
                                 <td>Emergency exit</td>
                                 <td>
-                                    <input type='checkbox' name='emergExt' value=''>
+                                    <input type='checkbox' name='emergExt' value='Yes' ";
+                            if ($row['Emergency Exit'] == 1) {
+                                echo "checked";
+                            }
+                                    
+                            echo ">
                                 </td>
                             </tr>
                             <tr>
