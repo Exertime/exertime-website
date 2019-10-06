@@ -85,7 +85,7 @@
         <div id="modal" class="modal-bg">
             <div class="modal-content">
                 <button id="btn-close" class="close" type="button" name="">X</button>
-                <h2>Edit</h2>
+                <h2>Add</h2>
                 <form method="post" action="resources/scripts/inserts.php">
                     <table class="form">
                         <tr>
@@ -106,7 +106,7 @@
                                 <input type="number" step="0.01" name="remain" value="">
                             </td>
                         </tr>
-						            <tr>
+						<tr>
                             <td>Expire</td>
                             <td>
                                 <input type="date" name="expire" value="">

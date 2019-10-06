@@ -51,11 +51,17 @@
                             <tr>
                                 <td>Category</td>
                                 <td>
-                                    <select name='type'>
-                                        <option value='Easy'>Easy</option>
-                                        <option value='Moderate'>Moderate</option>
-                                        <option value='Challenging'>Challenging</option>
-                                    </select>
+                                    <select name='type'>";
+                                        $query = "SELECT * FROM CATEGORIES";
+										$categories = $mysqli->query($query);
+										while($rowCat = $categories->fetch_array(MYSQLI_ASSOC)) {
+											echo "<option value='".$rowCat['category']."'";
+											if($rowCat['category'] == $row['type']){
+												echo "selected";
+											}
+											echo ">".$rowCat['category']."</option>";
+										}
+                                    echo "</select>
                                 </td>
                             </tr>
                             <tr>

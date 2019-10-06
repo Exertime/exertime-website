@@ -29,7 +29,7 @@
         $runEvery = $_POST['runEvery'];
         $usrEvery = $_POST['usrEvery'];
         $postponeInt = $_POST['postponeInt'];
-       
+
         if ($_POST['emergExt'] == "Yes") {$emergExt = 1;} else {$emergExt = 0;}
 
         // Query database
@@ -121,6 +121,21 @@
 
         // Return to previous page
         header('Location: ../../global.php');
+    }
+
+    // ADD CATEGORY
+    if (isset($_POST['addCategory'])) {
+        // Get form data
+        $id = $_POST['id'];
+        $category = $_POST['category'];
+
+        // Query database
+        $query = "INSERT INTO CATEGORIES (`id`, `category`)
+            VALUES ('$id','$category')";
+        $mysqli->query($query);
+
+        // Return to previous page
+        header('Location: ../../categories.php');
     }
 
     // Close database connection

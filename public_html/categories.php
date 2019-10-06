@@ -16,12 +16,8 @@
                 }
            }
 
-            $query = "SELECT `caption` FROM EXERCISES";
-            $exercisesResult = $mysqli->query($query);
-            $query = "SELECT * FROM HINTS";
-            $hintsResult = $mysqli->query($query);
-            $query = "SELECT `Group_Short_Name` FROM ORG_GROUP";
-            $grpResult = $mysqli->query($query);
+            $query = "SELECT * FROM CATEGORIES";
+            $result = $mysqli->query($query);
         ?>
     </head>
     <body>
@@ -40,15 +36,13 @@
                     <table id="datatable" class="display compact hover">
                         <thead>
                             <tr>
-                                <th>Categories</th>
                                 <th>Category</th>
                                 <th>Commands</th>
                             </tr>
                         </thead>
                         <?php
-                            while($row = $hintsResult->fetch_array(MYSQLI_ASSOC)) {
+                            while($row = $result->fetch_array(MYSQLI_ASSOC)) {
                                 echo "<tr>
-                                    <td>" . $row['id'] . "</td>
                                     <td>" . $row['category'] . "</td>
                                     <td>
                                         <form action='editCategory.php' method='post'>
@@ -65,7 +59,6 @@
                          ?>
                         <tfoot>
                             <tr>
-                                <th>Categories</th>
                                 <th>Category</th>
                                 <th>Commands</th>
                             </tr>
@@ -78,13 +71,13 @@
         <div id="modal" class="modal-bg">
             <div class="modal-content">
                 <button id="btn-close" class="close" type="button" name="">X</button>
-                <h2>Edit</h2>
+                <h2>Add</h2>
                 <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
                                 <td>Category</td>
                                 <td>
-                                    <textarea name="category"></textarea>
+                                    <input type="text" name="category"/>
                                 </td>
                             </tr>
                             <tr>

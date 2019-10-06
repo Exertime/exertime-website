@@ -113,7 +113,7 @@
         <div id="modal" class="modal-bg">
             <div class="modal-content">
                 <button id="btn-close" class="close" type="button" name="">X</button>
-                <h2>Edit</h2>
+                <h2>Add</h2>
                 <form method="post">
                         <table class="form">
                             <tr>

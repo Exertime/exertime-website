@@ -92,7 +92,7 @@
         <div id="modal" class="modal-bg">
             <div class="modal-content">
                 <button id="btn-close" class="close" type="button" name="">X</button>
-                <h2>Edit</h2>
+                <h2>Add</h2>
                 <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
@@ -123,9 +123,13 @@
                                 <td>Category</td>
                                 <td>
                                     <select name="type">
-                                        <option value="Easy">Easy</option>
-                                        <option value="Moderate">Moderate</option>
-                                        <option value="Challenging">Challenging</option>
+                                        <?php
+											$query = "SELECT * FROM CATEGORIES";
+											$categories = $mysqli->query($query);
+											while($row = $categories->fetch_array(MYSQLI_ASSOC)) {
+												echo "<option value='".$row['category']."'>".$row['category']."</option>";
+											}
+										?>
                                     </select>
                                 </td>
                             </tr>

@@ -4,9 +4,9 @@
         <?php
             $title = "Groups";
             include("include/head.php");
-            include("./db_conn.php");
+            include("../db_conn.php");
 
-            include("resources/scripts/session.php");
+                include("resources/scripts/session.php");
 
            if(isset($_SESSION['access'])){}else{
                 $fromurl="index.php";
@@ -102,7 +102,7 @@
         <div id="modal" class="modal-bg">
             <div class="modal-content">
                 <button id="btn-close" class="close" type="button" name="">X</button>
-                <h2>Edit</h2>
+                <h2>Add</h2>
                 <form method="post" action="resources/scripts/inserts.php">
                         <table class="form">
                             <tr>
